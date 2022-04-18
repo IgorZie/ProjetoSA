@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Tela Login</title>
+    <title>Tela Recuperação de Senha</title>
     <link rel="stylesheet" href="./style.css">
     <script src="./source.js" defer></script>
 
@@ -17,35 +17,31 @@
 
 <body>
     <header>
-        <h1>Login</h1>
+        <h1>Redefinir senha</h1>
     </header>
 
     <main>
         <form>
+            <input type="hidden">
             <section class="inputs-container">
                 <input type="email" placeholder="example@gmail.com">
 
                 <div class="password-container">
-                    <input type="password" id="field-password" class="field-password" placeholder="*********">
+                    <input type="password" id="field-password" class="field-password" placeholder="Nova Senha">
                     <i class="fa-solid fa-eye" id="eye" onclick="showPassword()"></i>
                     <i class="fa-solid fa-eye-slash" id="eye-slash" onclick="showPassword()"></i>
                 </div>
-            </section>
 
-            <section class="password-infos">
-                <div>
-                    <input type="checkbox">
-                    <span>Lembrar senha?</span>
+                <div class="password-container">
+                    <input type="password" id="field-password2" class="field-password2" placeholder="Confirmar Senha">
+                    <i class="fa-solid fa-eye" id="eye2" onclick="showPassword2()"></i>
+                    <i class="fa-solid fa-eye-slash" id="eye-slash2" onclick="showPassword2()"></i>
                 </div>
 
-                <a href="../TelaSenha/TelaSenha.php">Esqueceu sua senha?</a>
             </section>
 
-            <button id="btn-login">Login</button>
+            <button id="btn-login">Redefinir Senha</button>
 
-            <footer>
-                <span>Ainda não tem uma conta? <a href="../TelaCadastro/TelaCadastro.php">Cadastra-se</a></span>
-            </footer>
         </form>
     </main>
 

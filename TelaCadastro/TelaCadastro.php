@@ -9,66 +9,59 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js" integrity="sha384-0mSbJDEHialfmuBBQP6A4Qrprq5OVfW37PRR3j5ELqxss1yVqOtnepnHVP9aJ7xS" crossorigin="anonymous"></script>
-
+    <script src="https://kit.fontawesome.com/9c920a4175.js" crossorigin="anonymous" defer></script>
     <link rel="stylesheet" href="./style.css">
+    <script src="./source.js" defer></script>
+
 </head>
 
 <body>
     <header>
-        <h2>Cadastro de Usuário</h2>
+        <h1>Cadastro de Usuário</h1>
     </header>
 
     <main>
 
-        <div class="div-form">
-            <form action="#">
+        <form action="#" method="POST">
 
-                <div class="form-row">
-				
-					<div>
-                        <input type="hidden" name="status" id="status" value="user" disabled="">
-                    </div>
+            <section class="inputs-container">
 
-                    <div class="form-group col-md-6">
-                        <label>Nome Completo:</label>
-                        <input type="text" id="nome" name="nome" min="3" class="form-control">
-                    </div>
-
-                    <div class="form-group col-md-6">
-                        <label>Apelido:</label>
-                        <input type="text" id="apelido" name="apelido" maxlength="14" class="form-control">
-                    </div>
-
-                    <div class="form-group col-md-6">
-                        <label>Email:</label>
-                        <input type="email" name="email" id="email" placeholder="nome@exemplo.com" class="form-control">
-                    </div>
-
-                    <div class="form-group col-md-6">
-                        <label for="inputSexo">Sexo:</label>
-                        <select id="sexo" name="sexo" class="form-control">
-                            <option selected></option>
-                            <option value="F">Feminino</option>
-                            <option value="M">Masculino</option>
-                        </select>
-                    </div>
-
-                    <div class='form-group col-md-6'>
-                        <label for="inputDataNasc">Data de Nascimento:</label>
-                        <input type="date" id="dataNasc" name="dataNasc" class="form-control" placeholder="dd/mm/yyyy">
-                    </div>
+                <div>
+                    <input type="hidden" name="status" id="status" value="user" disabled="">
                 </div>
 
-                <div class="form-group col-md-3">
-                    <label for="inputCidade">Cidade:</label>
-                    <input type="text" id="cidade" name="cidade" class="form-control">
+                <div class="">
+                    <label>Nome Completo:</label>
+                    <input type="text" id="nome" name="nome" min="3" class="">
                 </div>
 
-                <div class="form-group col-md-3">
-                    <label for="inputEstado">Estado:</label>
-                    <select id="estado" name="estado" class="form-control">
+                <div class="">
+                    <label>Apelido:</label>
+                    <input type="text" id="apelido" name="apelido" maxlength="14" class="">
+                </div>
+
+                <div class="">
+                    <label>Email:</label><br>
+                    <input type="email" name="email" id="email" placeholder="nome@exemplo.com" class="">
+                </div>
+
+                <div class="">
+                    <label>Sexo:</label><br>
+                    <select id="sexo" name="sexo" class="selecionar">
+                        <option></option>
+                        <option value="F">Feminino</option>
+                        <option value="M">Masculino</option>
+                    </select>
+                </div>
+
+                <div class=''>
+                    <label>Data de Nascimento:</label>
+                    <input type="date" id="dataNasc" name="dataNasc" class="" placeholder="dd/mm/yyyy">
+                </div>
+
+                <div class="">
+                    <label>Estado:</label><br>
+                    <select id="estado" name="estado" class="selecionar">
                         <option selected></option>
                         <option value="AC">Acre</option>
                         <option value="AL">Alagoas</option>
@@ -101,14 +94,41 @@
                     </select>
                 </div>
 
-                <div class="col-lg-12" style="text-align: center;">
-                    <button type="submit" class="btn btn-primary" style="margin-top: 2em;">Cadastrar</button>
-                    <button type="reset" class="btn btn-primary" style="margin-top: 2em;">Cancelar</button>
+                <div class="">
+                    <label for="inputCidade">Cidade:</label>
+                    <input type="text" id="cidade" name="cidade" class="">
                 </div>
 
-            </form>
-        </div>
 
+                <!-- <div>
+                    <label>Senha:</label>
+                    <input type="password" id="senha" name="senha">
+                </div>
+
+
+                <div>
+                    <label>Confirmar Senha:</label>
+                    <input type="password" id="confirmSenha" name="confirmSenha">
+                </div> -->
+
+                <div class="password-container">
+                    <input type="password" id="field-password" class="field-password" placeholder="Senha">
+                    <i class="fa-solid fa-eye" id="eye" onclick="showPassword()"></i>
+                    <i class="fa-solid fa-eye-slash" id="eye-slash" onclick="showPassword()"></i>
+                </div>
+
+                <div class="password-container">
+                    <input type="password" id="field-password2" class="field-password2" placeholder="Confirmar Senha">
+                    <!-- <i class="fa-solid fa-eye" id="eye" onclick="showPassword2()"></i> -->
+                    <!-- <i class="fa-solid fa-eye-slash" id="eye-slash" onclick="showPassword2()"></i> -->
+                </div>
+
+                <div class="">
+                    <button type="submit" id="btn-login">Cadastrar</button>
+                    <button type="button" onclick="voltar()">Cancelar</button>
+                </div>
+            </section>
+        </form>
 
     </main>
 
