@@ -88,7 +88,7 @@
                     </select>
                 </div>
 
-                <div>
+                <div style="margin-top: 40px;" class="upload">
                     <label>Upload Imagem</label>
                     <input type="file" name="imagem" id="imagem">
                 </div>
