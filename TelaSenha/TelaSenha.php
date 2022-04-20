@@ -21,10 +21,23 @@
     </header>
 
     <main>
-        <form>
-            <input type="hidden">
+
+        <form action="" style="margin-right: 10px;" class="formEmail">
             <section class="inputs-container">
-                <input type="email" placeholder="example@gmail.com">
+                <div class="inputs-container">
+                    <!-- <label>Email:</label> -->
+                    <input type="email" id="email" name="email" placeholder="Digite o email">
+                    <button type="submit">Enviar Email</button>
+                </div>
+            </section>
+        </form>
+
+        <form action="">
+            <section class="inputs-container">
+
+                <div class="inputs-container">
+                    <input type="text" id="recovery" name="recovery" placeholder="Chave de recuperação" maxlength="8" minlength="8">
+                </div>
 
                 <div class="password-container">
                     <input type="password" id="field-password" class="field-password" placeholder="Nova Senha">

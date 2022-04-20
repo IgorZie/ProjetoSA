@@ -23,7 +23,7 @@ header h1{
 main{
     width: 100%;
     min-height: 100vh;
-    background: linear-gradient(#18acfe, #0166e1);
+    background: white;
     color: white;
 
     display: flex;
@@ -86,7 +86,7 @@ main form .inputs-container input:focus{
 }
 
 main form button{
-    background-color: #18acfe;
+    background-color: black;
     width: 35%;
     height: 50px;
     border: 0;
@@ -102,8 +102,8 @@ main form button{
 }
 
 main form button:hover{
-    background: #fff;
-    color: #18acfe;
+    background: gray;
+    color: white;
 }
 
 main form a{

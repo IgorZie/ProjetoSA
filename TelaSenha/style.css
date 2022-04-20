@@ -23,7 +23,7 @@ header h1{
 main{
     width: 100%;
     min-height: 100vh;
-    background: linear-gradient(#18acfe, #0166e1);
+    background: white;
 
     display: flex;
     justify-content: center;
@@ -46,7 +46,7 @@ main form{
 }
 
 main form .inputs-container{
-    margin-top: 10%;
+    margin-top: 10px;
     width: 100%;
     display: flex;
     flex-direction: column;
@@ -110,7 +110,7 @@ main form .password-infos a:hover{
 }
 
 main form button{
-    background-color: #18acfe;
+    background-color: black;
     width: 90%;
     height: 50px;
     border: 0;
@@ -124,8 +124,8 @@ main form button{
 }
 
 main form button:hover{
-    background: #fff;
-    color: #18acfe;
+    background: gray;
+    color: white;
 }
 
 main form footer{
