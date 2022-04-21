@@ -18,6 +18,7 @@
 
 </head>
 
+
 <body>
     <header>
         <h1>Cadastro de Usuário</h1>
@@ -25,32 +26,28 @@
 
     <main>
 
-        <form action="#" method="POST">
+        <form action="./CadastrarUsuario.php" method="POST" id="formulario">
 
             <section class="inputs-container">
 
-                <div>
-                    <input type="hidden" name="status" id="status" value="user" disabled="">
-                </div>
-
                 <div class="">
                     <label>Nome Completo:</label>
-                    <input type="text" id="nome" name="nome" min="3" class="">
+                    <input type="text" id="nome" name="nome" min="3" class="" required>
                 </div>
 
                 <div class="">
                     <label>Apelido:</label>
-                    <input type="text" id="apelido" name="apelido" maxlength="14" class="">
+                    <input type="text" id="apelido" name="apelido" maxlength="14" class="" required>
                 </div>
 
                 <div class="">
                     <label>Email:</label><br>
-                    <input type="email" name="email" id="email" placeholder="nome@exemplo.com" class="">
+                    <input type="email" name="email" id="email" placeholder="nome@exemplo.com" class="" required>
                 </div>
 
                 <div class="">
                     <label>Sexo:</label><br>
-                    <select id="sexo" name="sexo" class="selecionar">
+                    <select id="sexo" name="sexo" class="selecionar" required>
                         <option></option>
                         <option value="F">Feminino</option>
                         <option value="M">Masculino</option>
@@ -59,12 +56,12 @@
 
                 <div class=''>
                     <label>Data de Nascimento:</label>
-                    <input type="date" id="dataNasc" name="dataNasc" class="" placeholder="dd/mm/yyyy">
+                    <input type="date" id="dataNasc" name="dataNasc" class="" placeholder="dd/mm/yyyy" required>
                 </div>
 
                 <div class="">
                     <label>Estado:</label><br>
-                    <select id="estado" name="estado" class="selecionar">
+                    <select id="estado" name="estado" class="selecionar" required>
                         <option></option>
                         <?php
                         $queryEstado = "SELECT * FROM Estado ORDER BY Nome_Estado ASC";
@@ -78,21 +75,23 @@
 
                 <div class="">
                     <label>Cidade:</label><br>
-                    <select id="cidade" name="cidade" class="selecionar" style="display: none;"></select>
+                    <select id="cidade" name="cidade" class="selecionar" style="display: none;" required></select>
                 </div>
 
                 <div class="password-container">
-                    <input type="password" id="field-password" class="field-password" placeholder="Senha">
+                    <!-- <label>Senha:</label> -->
+                    <input type="password" id="senha" name="senha" class="field-password" placeholder="Senha" required>
                     <i class="fa-solid fa-eye" id="eye" onclick="showPassword()"></i>
                     <i class="fa-solid fa-eye-slash" id="eye-slash" onclick="showPassword()"></i>
                 </div>
 
                 <div class="password-container">
-                    <input type="password" id="field-password2" class="field-password2" placeholder="Confirmar Senha">
+                    <label>Confirmar senha:</label>
+                    <input type="password" id="senha2" name="senha2" class="field-password2" placeholder="Confirmar Senha" required>
                 </div>
 
                 <div class="">
-                    <button type="submit" id="btn-login">Cadastrar</button>
+                    <button type="submit" id="btn-login" onclick="return conferirSenha()">Cadastrar</button>
                     <button type="button" onclick="voltar()">Cancelar</button>
                 </div>
             </section>
@@ -102,28 +101,35 @@
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
 
         <script>
-            $("#estado").on("change",function(){
+            $("#estado").on("change", function() {
                 var idEstado = $("#estado").val();
 
                 $.ajax({
                     url: '../preencherCidade.php',
                     type: 'POST',
-                    data:{id:idEstado},
-                    beforeSend: function(){
-                        $("#cidade").css({'display':'block'});
+                    data: {
+                        id: idEstado
+                    },
+                    beforeSend: function() {
+                        $("#cidade").css({
+                            'display': 'block'
+                        });
                         $("#cidade").html("Carregando...");
                     },
-                    success: function(data){
-                        $("#cidade").css({'display':'block'});
+                    success: function(data) {
+                        $("#cidade").css({
+                            'display': 'block'
+                        });
                         $("#cidade").html(data);
                     },
-                    error: function(data){
-                        $("#cidade").css({'display':'block'});
+                    error: function(data) {
+                        $("#cidade").css({
+                            'display': 'block'
+                        });
                         $("#cidade").html("Houve um erro ao carregar");
                     }
                 });
             });
-
         </script>
 
     </main>
