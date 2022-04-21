@@ -23,6 +23,7 @@
     <main>
 
         <form action="" style="margin-right: 10px;" class="formEmail">
+        <legend>1º Passo</legend>
             <section class="inputs-container">
                 <div class="inputs-container">
                     <!-- <label>Email:</label> -->
@@ -33,6 +34,7 @@
         </form>
 
         <form action="">
+            <legend>2º Passo</legend>
             <section class="inputs-container">
 
                 <div class="inputs-container">

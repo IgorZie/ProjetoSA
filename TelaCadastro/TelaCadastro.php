@@ -1,3 +1,5 @@
+<?php require_once('../Database/conexao.php') ?>
+
 <!DOCTYPE html>
 <html lang="pt-BR">
 
@@ -10,6 +12,7 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
     <script src="https://kit.fontawesome.com/9c920a4175.js" crossorigin="anonymous" defer></script>
+
     <link rel="stylesheet" href="./style.css">
     <script src="./source.js" defer></script>
 
@@ -62,54 +65,21 @@
                 <div class="">
                     <label>Estado:</label><br>
                     <select id="estado" name="estado" class="selecionar">
-                        <option selected></option>
-                        <option value="AC">Acre</option>
-                        <option value="AL">Alagoas</option>
-                        <option value="AP">Amapá</option>
-                        <option value="AM">Amazonas</option>
-                        <option value="BA">Bahia</option>
-                        <option value="CE">Ceará</option>
-                        <option value="DF">Distrito Federal</option>
-                        <option value="ES">Espírito Santo</option>
-                        <option value="GO">Goiás</option>
-                        <option value="MA">Maranhão</option>
-                        <option value="MT">Mato Grosso</option>
-                        <option value="MS">Mato Grosso do Sul</option>
-                        <option value="MG">Minas Gerais</option>
-                        <option value="PA">Pará</option>
-                        <option value="PB">Paraíba</option>
-                        <option value="PR">Paraná</option>
-                        <option value="PE">Pernambuco</option>
-                        <option value="PI">Piauí</option>
-                        <option value="RJ">Rio de Janeiro</option>
-                        <option value="RN">Rio Grande do Norte</option>
-                        <option value="RS">Rio Grande do Sul</option>
-                        <option value="RO">Rondônia</option>
-                        <option value="RR">Roraima</option>
-                        <option value="SC">Santa Catarina</option>
-                        <option value="SP">São Paulo</option>
-                        <option value="SE">Sergipe</option>
-                        <option value="TO">Tocantins</option>
-                        <option value="EX">Estrangeiro</option>
+                        <option></option>
+                        <?php
+                        $queryEstado = "SELECT * FROM Estado ORDER BY Nome_Estado ASC";
+                        $resultQuery = mysqli_query($conexao, $queryEstado);
+                        while ($rowEstado = mysqli_fetch_assoc($resultQuery)) {
+                            echo '<option value="' . $rowEstado["Id_Estado"] . '"> ' . $rowEstado["Nome_Estado"] . '</option>';
+                        }
+                        ?>
                     </select>
                 </div>
 
                 <div class="">
-                    <label for="inputCidade">Cidade:</label>
-                    <input type="text" id="cidade" name="cidade" class="">
+                    <label>Cidade:</label><br>
+                    <select id="cidade" name="cidade" class="selecionar" style="display: none;"></select>
                 </div>
-
-
-                <!-- <div>
-                    <label>Senha:</label>
-                    <input type="password" id="senha" name="senha">
-                </div>
-
-
-                <div>
-                    <label>Confirmar Senha:</label>
-                    <input type="password" id="confirmSenha" name="confirmSenha">
-                </div> -->
 
                 <div class="password-container">
                     <input type="password" id="field-password" class="field-password" placeholder="Senha">
@@ -119,8 +89,6 @@
 
                 <div class="password-container">
                     <input type="password" id="field-password2" class="field-password2" placeholder="Confirmar Senha">
-                    <!-- <i class="fa-solid fa-eye" id="eye" onclick="showPassword2()"></i> -->
-                    <!-- <i class="fa-solid fa-eye-slash" id="eye-slash" onclick="showPassword2()"></i> -->
                 </div>
 
                 <div class="">
@@ -129,6 +97,34 @@
                 </div>
             </section>
         </form>
+
+        <!-- <script src="http://code.jquery.com/jquery-1.5.js"></script> -->
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+
+        <script>
+            $("#estado").on("change",function(){
+                var idEstado = $("#estado").val();
+
+                $.ajax({
+                    url: '../preencherCidade.php',
+                    type: 'POST',
+                    data:{id:idEstado},
+                    beforeSend: function(){
+                        $("#cidade").css({'display':'block'});
+                        $("#cidade").html("Carregando...");
+                    },
+                    success: function(data){
+                        $("#cidade").css({'display':'block'});
+                        $("#cidade").html(data);
+                    },
+                    error: function(data){
+                        $("#cidade").css({'display':'block'});
+                        $("#cidade").html("Houve um erro ao carregar");
+                    }
+                });
+            });
+
+        </script>
 
     </main>
 

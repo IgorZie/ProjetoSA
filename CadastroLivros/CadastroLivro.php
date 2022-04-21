@@ -1,3 +1,5 @@
+<?php require_once('../Database/conexao.php')?>
+
 <!DOCTYPE html>
 <html lang="pt-BR">
 
@@ -56,8 +58,13 @@
                     <label>Categoria:</label>
                     <select id="categoria" name="categoria" class="selecionar">
                         <option></option>
-                        <option value="">Terror e Suspense</option>
-                        <option value="">Ficção Cientifica</option>
+                        <?php
+                            $queryCategoria = "SELECT * FROM Categoria";
+                            $resultQuery = mysqli_query($conexao, $queryCategoria);
+                            while ($rowCategoria = mysqli_fetch_assoc($resultQuery)){
+                                echo '<option value="'. $rowCategoria["Id_Categoria"].'"> ' . $rowCategoria["Descricao_Categoria"] . '</option>';
+                            }
+                        ?>
                     </select>
                 </div>
 
@@ -65,8 +72,13 @@
                     <label>Idioma:</label>
                     <select id="idioma" name="idioma" class="selecionar">
                         <option></option>
-                        <option value="">Português</option>
-                        <option value="">Inglês</option>
+                        <?php
+                            $queryIdioma = "SELECT * FROM Idioma";
+                            $resultQuery = mysqli_query($conexao, $queryIdioma);
+                            while ($rowIdioma = mysqli_fetch_assoc($resultQuery)){
+                                echo '<option value="'. $rowIdioma["Id_Idioma"].'"> ' . $rowIdioma["Descricao_Idioma"] . '</option>';
+                            }
+                        ?>
                     </select>
                 </div>
 
@@ -74,8 +86,13 @@
                     <label>Editora:</label>
                     <select id="editora" name="editora" class="selecionar">
                         <option></option>
-                        <option value="">Companhia das Letras</option>
-                        <option value=""> Intrínseca</option>
+                        <?php
+                            $queryEditora = "SELECT * FROM Editora";
+                            $resultQuery = mysqli_query($conexao, $queryEditora);
+                            while ($rowEditora = mysqli_fetch_assoc($resultQuery)){
+                                echo '<option value="'. $rowEditora["Id_Editora"].'"> ' . $rowEditora["Nome_Editora"] . '</option>';
+                            }
+                        ?>
                     </select>
                 </div>
 
@@ -83,8 +100,13 @@
                     <label>Autor:</label>
                     <select id="autor" name="autor" class="selecionar">
                         <option></option>
-                        <option value="">Stephen King</option>
-                        <option value="">Isaac Asimov</option>
+                        <?php
+                            $queryAutor = "SELECT * FROM Autor";
+                            $resultQuery = mysqli_query($conexao, $queryAutor);
+                            while ($rowAutor = mysqli_fetch_assoc($resultQuery)){
+                                echo '<option value="'. $rowAutor["Id_Autor"].'"> ' . $rowAutor["Nome_Autor"] . '</option>';
+                            }
+                        ?>
                     </select>
                 </div>
 
