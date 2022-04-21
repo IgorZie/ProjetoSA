@@ -17,15 +17,23 @@
 </head>
 
 <body>
-    <header>
-        <h1>Cadastrar Editora</h1>
+<header>
+        <h1 style="margin-left: 650px;">Cadastrar Editora</h1>
+        <section style="margin-left: auto; margin-right:15px;">
+            <div style="padding: 15px;">
+                <a href="../CadastroAutor/CadastroAutor.php" target="_blank" style="margin-right: 8px;">Autor</a>
+                <a href="../CadastroLivros/CadastroLivro.php" target="_blank" style="margin-right: 8px;">Livro</a>
+                <a href="../CadastroCategoria/CadastroCategoria.php" target="_blank" style="margin-right: 8px;">Categoria</a>
+                <a href="../CadastroIdioma/CadastroIdioma.php" target="_blank" style="margin-right: 8px;">Idioma</a>
+            </div>
+        </section>
     </header>
 
     <main>
         <form>
             <div class="inputs-container">
                 <label>Nome Editora:</label>
-                <input type="text" id="categoria" name="categoria" style="text-transform: uppercase">
+                <input type="text" id="categoria" name="categoria">
                 <button type="submit">Cadastrar</button>
             </div>
         </form>

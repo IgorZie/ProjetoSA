@@ -16,7 +16,7 @@ try {
     $mail->Host = 'smtp.gmail.com';
     $mail->SMTPAuth = true;
     $mail->Username = 'igor_zielosko@estudante.sesisenai.org.br';
-    $mail->Password = 'Igor951753'; // senha endereço de email "pai"
+    $mail->Password = ''; // senha endereço de email "pai"
     $mail->Port = 587;
 
     $mail->setFrom('igor_zielosko@estudante.sesisenai.org.br');

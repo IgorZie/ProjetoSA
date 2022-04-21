@@ -36,7 +36,7 @@
 
                 <div class="">
                     <label>Título do Livro:</label>
-                    <input type="text" id="nome" name="nome" min="3" class="" style="text-transform: uppercase">
+                    <input type="text" id="nome" name="nome" min="3" class="">
                 </div>
 
                 <div>
