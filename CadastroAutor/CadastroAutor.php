@@ -14,6 +14,24 @@
 
     <link rel="stylesheet" href="./styleCadAutor.css">
 
+    <script>
+        function verificar(){
+            let nomeAutor = document.getElementById('nomeAutor').value;
+            let descriAutor = document.getElementById('descriAutor').value;
+            if (nomeAutor == ""){
+                alert('Preencha o campo nome');
+                formulario.nomeAutor.focus();
+                return false;
+            } else if (descriAutor == ""){
+                alert('Preencha o campo descrição');
+                formulario.descriAutor.focus();
+                return false;
+            } else {
+                alert ('Autor cadastrado com sucesso');
+            }
+        }
+    </script>
+
 </head>
 
 <body>
@@ -30,13 +48,13 @@
     </header>
 
     <main>
-        <form>
+        <form method="POST" action="./CadastrarAutor.php" id="formulario">
             <div class="inputs-container">
                 <label>Nome:</label>
-                <input type="text" id="nomeAutor" name="nomeAutor">
+                <input type="text" id="nomeAutor" name="nomeAutor" required>
                 <label>Descrição:</label>
-                <textarea name="descriAutor" id="descriAutor" name="descriAutor"  cols="30" rows="10" style="color: black; padding: 5px"></textarea>
-                <button type="submit">Cadastrar</button>
+                <textarea name="descriAutor" id="descriAutor" name="descriAutor"  cols="30" rows="10" style="color: black; padding: 5px" required maxlength="500"></textarea>
+                <button type="submit" onclick="return verificar()">Cadastrar</button>
             </div>
         </form>
     </main>

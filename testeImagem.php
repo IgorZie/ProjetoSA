@@ -10,7 +10,4 @@ $image = Image::make($_FILES['imagem']['tmp_name'])->resize(300, 200);
 
 $image->save('Uploads/bar.jpg', 60);
 
-echo "<pre>";
-print_r($_FILES);
-echo "</pre>";
 ?>

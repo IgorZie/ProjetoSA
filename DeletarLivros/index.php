@@ -1,0 +1,109 @@
+<?php
+require_once '../Database/conexao.php';
+
+if (isset($_GET['id']) && isset($_GET['action'])) {
+    $Id_Livro = $_GET['id'];
+    if ($_GET['action'] == "delete") {
+
+        $queryDeletar = "DELETE FROM livro_autor WHERE Id_Livro=$Id_Livro";
+        $queryDeletarLivro = "DELETE FROM livro WHERE Id_Livro=$Id_Livro";
+
+        mysqli_query($conexao, $queryDeletar);
+        mysqli_query($conexao, $queryDeletarLivro);
+
+        $filename = "../Uploads/$Id_Livro.jpg";
+
+        if (file_exists($filename)) {
+            unlink($filename);
+        }
+
+        echo '<script type="text/javascript">';
+        echo 'alert("Livro deletado com sucesso!");';
+        echo 'window.location.href = "http://localhost/ProjetoSA/DeletarLivros/index.php";';
+        echo '</script>';
+        // header("Location: ./index.php");
+    }
+}
+
+
+$filtrar = "";
+$queryFiltrar = "";
+$ordenacao = ' ORDER BY Id_Livro ASC';
+?>
+
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Deletar Livros</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.14.7/dist/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+</head>
+
+<body>
+    <?php
+
+    if (isset($_POST['filtro'])) {
+
+        if (isset($_POST['btn-filtro'])) {
+            $ordenacao = "";
+
+            $filtrar = $_POST['filtro'];
+
+            $queryFiltrar = " WHERE (Titulo_Livro LIKE '%$filtrar%' OR Ano_Publicacao LIKE '%$filtrar%' OR Quantidade_Pagina LIKE '%$filtrar%' OR cat.Descricao_Categoria LIKE '%$filtrar%' OR edi.Nome_Editora LIKE '%$filtrar%' OR idi.Descricao_Idioma LIKE '%$filtrar%') GROUP BY li.Titulo_Livro";
+        } else if (isset($_POST['btn-limparFiltro'])) {
+
+            $queryFiltrar = "";
+        }
+    }
+
+    $queryListar = 'SELECT Id_Livro, Titulo_Livro, Ano_Publicacao, Quantidade_Pagina,  cat.Descricao_Categoria, edi.Nome_Editora, idi.Descricao_Idioma
+    FROM livro li
+    JOIN categoria cat ON cat.Id_Categoria=li.Id_Categoria
+    JOIN editora edi ON edi.Id_Editora=li.Id_Editora
+    JOIN idioma idi ON idi.Id_Idioma=li.Id_Idioma' . $ordenacao . $queryFiltrar;
+
+
+    echo '<br>';
+    echo '<div class="container-fluid"><form action="./index.php" method="POST" id="form-filtro" name="form-filtro">';
+    echo "<input type='text' name='filtro' id='filtro' class='form-control' style='width:300px' value='$filtrar'>"
+        . "<div style='margin-top:2px;'>"
+        . "<button type='submit' name='btn-filtro' id='btn-filtro' style='cursor: pointer;' class='btn btn-dark'>Pesquisar</button><span>   </span>"
+        . "<button type='submit' name='btn-limparFiltro' id='btn-limparFiltro' style='cursor: pointer;' class='btn btn-dark'>Limpar</button>";
+    echo '</div></form></div>';
+
+    $resultadoListar = mysqli_query($conexao, $queryListar);
+    echo '<div class="container-fluid">';
+    echo '<table class="table table-striped table-dark">';
+    echo '<br> <thead>';
+    echo '<tr><th scope="col">Id_Livro</th>'
+        . '<th scope="col">Titulo do Livro</th>'
+        . '<th scope="col">Ano de Publicação</th>'
+        . '<th scope="col">Quantidade de Páginas</th>'
+        . '<th scope="col">Categoria</th>'
+        . '<th scope="col">Editora</th>'
+        . '<th scope="col">Idioma</th>'
+        . '<th scope="col">Ações</th>'
+        . '</tr> </thead> <tbody>';
+    while ($linha_livro = mysqli_fetch_array($resultadoListar)) {
+        echo "<tr><td>$linha_livro[Id_Livro]</td>"
+            . "<td>$linha_livro[Titulo_Livro]</td>"
+            . "<td>$linha_livro[Ano_Publicacao]</td>"
+            . "<td>$linha_livro[Quantidade_Pagina]</td>"
+            . "<td>$linha_livro[Descricao_Categoria]</td>"
+            . "<td>$linha_livro[Nome_Editora]</td>"
+            . "<td>$linha_livro[Descricao_Idioma]</td>"
+            . "<td><a href='index.php?id=" . $linha_livro['Id_Livro'] . "&action=delete' class='btn-excluir' name='btn_delete' id='btn_delete_$linha_livro[Id_Livro]'>Deletar</a></td>"
+            . "</tr>";
+    }
+    echo '</tbody> </table>';
+
+    ?>
+
+</body>
+
+</html>

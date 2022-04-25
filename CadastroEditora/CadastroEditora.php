@@ -13,7 +13,19 @@
     <script src="https://kit.fontawesome.com/9c920a4175.js" crossorigin="anonymous" defer></script>
 
     <link rel="stylesheet" href="./styleCadEditora.css">
-
+    
+    <script>
+        function verificar(){
+            let editora = document.getElementById('editora').value;
+            if (editora == ""){
+                alert('Preencha o campo editora');
+                formulario.editora.focus();
+                return false;
+            } else {
+                alert('Editora cadastrada com sucesso');
+            }
+        }
+    </script>
 </head>
 
 <body>
@@ -30,11 +42,11 @@
     </header>
 
     <main>
-        <form>
+        <form method="POST" action="./CadastrarEditora.php" id="formulario">
             <div class="inputs-container">
                 <label>Nome Editora:</label>
-                <input type="text" id="categoria" name="categoria">
-                <button type="submit">Cadastrar</button>
+                <input type="text" id="editora" name="editora" required>
+                <button type="submit" onclick="return verificar()">Cadastrar</button>
             </div>
         </form>
     </main>

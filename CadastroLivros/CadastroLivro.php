@@ -15,6 +15,63 @@
     <script src="https://kit.fontawesome.com/9c920a4175.js" crossorigin="anonymous" defer></script>
 
     <link rel="stylesheet" href="./styleCadLivro.css">
+
+    <script>
+        function verificar()
+        {
+            let titulo = document.getElementById('titulo').value;
+            let sinopse = document.getElementById('sinopse').value;
+            let paginas = document.getElementById('paginas').value;
+            let anoLivro = document.getElementById('anoLivro').value;
+            let categoria = document.getElementById('categoria').value;
+            let idioma = document.getElementById('idioma').value;
+            let editora = document.getElementById('editora').value;
+            let autor = document.getElementById('autor').value;
+            let imagem = document.getElementById('imagem').value;
+
+            if (titulo == ""){
+                alert('Preencha o campo titulo');
+                formulario.titulo.focus();
+                return false;
+            } else if (sinopse == ""){
+                alert('Preencha o campo descrição');
+                formulario.sinopse.focus();
+                return false;
+            } else if (paginas == "") {
+                alert('Preencha o campo páginas');
+                formulario.paginas.focus();
+                return false;
+            } else if (anoLivro == "") {
+                alert('Preencha o campo ano');
+                formulario.anoLivro.focus();
+                return false;
+            } else if (categoria == "") {
+                alert('Selecione uma categoria');
+                formulario.categoria.focus();
+                return false;
+            } else if (idioma == "") {
+                alert('Selecione um idioma');
+                formulario.idioma.focus();
+                return false;
+            } else if (editora == "") {
+                alert('Selecione uma editora');
+                formulario.editora.focus();
+                return false;
+            } else if (autor == "") {
+                alert('Selecione um(a) autor(a)');
+                formulario.autor.focus();
+                return false;
+            } else if (imagem == "") {
+                alert('Selecione uma imagem');
+                formulario.imagem.focus();
+                return false;
+            } else {
+                alert ('Livro cadastrado com sucesso');
+            }
+
+        }
+
+    </script>
 </head>
 
 <body>
@@ -31,32 +88,32 @@
     </header>
 
     <main>
-        <form enctype="multipart/form-data" method="POST" action="../testeImagem.php">
+        <form enctype="multipart/form-data" method="POST" action="./CadastrarLivro.php" id="formulario">
             <section class="inputs-container">
 
                 <div class="">
                     <label>Título do Livro:</label>
-                    <input type="text" id="nome" name="nome" min="3" class="">
+                    <input type="text" id="titulo" name="titulo" min="3" class="" required>
                 </div>
 
                 <div>
                     <label>Descrição:</label><br>
-                    <textarea name="descriAutor" id="descriAutor" name="descriAutor" cols="30" rows="10" style="color: black; padding: 5px"></textarea>
+                    <textarea name="sinopse" id="sinopse" name="sinopse" cols="30" rows="10" style="color: black; padding: 5px" required></textarea>
                 </div>
 
                 <div>
                     <label>Páginas:</label><br>
-                    <input type="number" id="paginas" name="paginas">
+                    <input type="number" id="paginas" name="paginas" required>
                 </div>
 
                 <div>
                     <label>Ano do Livro:</label><br>
-                    <input type="text" id="anoLivro" name="anoLivro" maxlength="4" minlength="4">
+                    <input type="text" id="anoLivro" name="anoLivro" maxlength="4" minlength="4" required>
                 </div>
 
                 <div>
                     <label>Categoria:</label>
-                    <select id="categoria" name="categoria" class="selecionar">
+                    <select id="categoria" name="categoria" class="selecionar" required>
                         <option></option>
                         <?php
                             $queryCategoria = "SELECT * FROM Categoria";
@@ -70,7 +127,7 @@
 
                 <div>
                     <label>Idioma:</label>
-                    <select id="idioma" name="idioma" class="selecionar">
+                    <select id="idioma" name="idioma" class="selecionar" required>
                         <option></option>
                         <?php
                             $queryIdioma = "SELECT * FROM Idioma";
@@ -84,7 +141,7 @@
 
                 <div>
                     <label>Editora:</label>
-                    <select id="editora" name="editora" class="selecionar">
+                    <select id="editora" name="editora" class="selecionar" required>
                         <option></option>
                         <?php
                             $queryEditora = "SELECT * FROM Editora";
@@ -98,7 +155,7 @@
 
                 <div>
                     <label>Autor:</label>
-                    <select id="autor" name="autor" class="selecionar">
+                    <select id="autor" name="autor" class="selecionar" required>
                         <option></option>
                         <?php
                             $queryAutor = "SELECT * FROM Autor";
@@ -112,11 +169,11 @@
 
                 <div style="margin-top: 40px;" class="upload">
                     <label>Upload Imagem</label>
-                    <input type="file" name="imagem" id="imagem">
+                    <input type="file" name="imagem" id="imagem" required>
                 </div>
 
                 <div class="">
-                    <button type="submit" id="btn-login">Cadastrar</button>
+                    <button type="submit" id="btn-login" onclick="return verificar()">Cadastrar</button>
                 </div>
 
             </section>
