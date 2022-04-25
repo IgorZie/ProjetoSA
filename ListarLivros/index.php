@@ -19,7 +19,7 @@ if (isset($_GET['id']) && isset($_GET['action'])) {
 
         echo '<script type="text/javascript">';
         echo 'alert("Livro deletado com sucesso!");';
-        echo 'window.location.href = "http://localhost/ProjetoSA/DeletarLivros/index.php";';
+        echo 'window.location.href = "http://localhost/ProjetoSA/ListarLivros/index.php";';
         echo '</script>';
         // header("Location: ./index.php");
     }
