@@ -1,3 +1,6 @@
+<?php
+    session_start();
+?>
 <!DOCTYPE html>
 <html lang="pt-BR">
 
@@ -23,12 +26,21 @@
     </header>
 
     <main>
-        <form>
+       
+        <form method="POST" action="./login.php">
+            <?php
+                if(isset($_SESSION['nao_autenticado'])):
+            ?>
+            <p style="background: red;">ERRO: Usuário ou senha inválidos.</p>
+            <?php
+            endif;
+            unset($_SESSION['nao_autenticado']);
+            ?>
             <section class="inputs-container">
-                <input type="email" placeholder="example@gmail.com">
+                <input type="email" id="email" name="email" placeholder="Email">
 
                 <div class="password-container">
-                    <input type="password" id="field-password" class="field-password" placeholder="*********">
+                    <input type="password" id="field-password" name="senha" class="field-password" placeholder="*********">
                     <i class="fa-solid fa-eye" id="eye" onclick="showPassword()"></i>
                     <i class="fa-solid fa-eye-slash" id="eye-slash" onclick="showPassword()"></i>
                 </div>

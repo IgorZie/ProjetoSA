@@ -15,9 +15,9 @@
     <link rel="stylesheet" href="./styleCadIdioma.css">
 
     <script>
-        function verificar(){
+        function verificar() {
             let idioma = document.getElementById('idioma').value;
-            if (idioma == ""){
+            if (idioma == "") {
                 alert('Preencha o campo idioma');
                 formulario.idioma.focus();
                 return false;
@@ -30,10 +30,11 @@
 </head>
 
 <body>
-<header>
+    <header>
         <h1 style="margin-left: 650px;">Cadastrar Idioma</h1>
         <section style="margin-left: auto; margin-right:15px;">
             <div style="padding: 15px;">
+                <a href="../ListarLivros/index.php" target="_blank" style="margin-right: 8px;">Lista Livros</a>
                 <a href="../CadastroAutor/CadastroAutor.php" target="_blank" style="margin-right: 8px;">Autor</a>
                 <a href="../CadastroEditora/CadastroEditora.php" target="_blank" style="margin-right: 8px;">Editora</a>
                 <a href="../CadastroCategoria/CadastroCategoria.php" target="_blank" style="margin-right: 8px;">Categoria</a>

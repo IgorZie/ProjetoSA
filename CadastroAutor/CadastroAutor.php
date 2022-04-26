@@ -39,8 +39,9 @@
         <h1 style="margin-left: 650px;">Cadastrar Autor</h1>
         <section style="margin-left: auto; margin-right:15px;">
             <div style="padding: 15px;">
-                <a href="../CadastroLivros/CadastroLivro.php" target="_blank" style="margin-right: 8px;">Livro</a>
+                <a href="../ListarLivros/index.php" target="_blank" style="margin-right: 8px;">Lista Livros</a>                
                 <a href="../CadastroEditora/CadastroEditora.php" target="_blank" style="margin-right: 8px;">Editora</a>
+                <a href="../CadastroLivros/CadastroLivro.php" target="_blank" style="margin-right: 8px;">Livro</a>
                 <a href="../CadastroCategoria/CadastroCategoria.php" target="_blank" style="margin-right: 8px;">Categoria</a>
                 <a href="../CadastroIdioma/CadastroIdioma.php" target="_blank" style="margin-right: 8px;">Idioma</a>
             </div>

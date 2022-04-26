@@ -13,11 +13,11 @@
     <script src="https://kit.fontawesome.com/9c920a4175.js" crossorigin="anonymous" defer></script>
 
     <link rel="stylesheet" href="./styleCadEditora.css">
-    
+
     <script>
-        function verificar(){
+        function verificar() {
             let editora = document.getElementById('editora').value;
-            if (editora == ""){
+            if (editora == "") {
                 alert('Preencha o campo editora');
                 formulario.editora.focus();
                 return false;
@@ -29,10 +29,11 @@
 </head>
 
 <body>
-<header>
+    <header>
         <h1 style="margin-left: 650px;">Cadastrar Editora</h1>
         <section style="margin-left: auto; margin-right:15px;">
             <div style="padding: 15px;">
+                <a href="../ListarLivros/index.php" target="_blank" style="margin-right: 8px;">Lista Livros</a>
                 <a href="../CadastroAutor/CadastroAutor.php" target="_blank" style="margin-right: 8px;">Autor</a>
                 <a href="../CadastroLivros/CadastroLivro.php" target="_blank" style="margin-right: 8px;">Livro</a>
                 <a href="../CadastroCategoria/CadastroCategoria.php" target="_blank" style="margin-right: 8px;">Categoria</a>

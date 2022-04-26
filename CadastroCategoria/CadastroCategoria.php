@@ -15,9 +15,9 @@
     <link rel="stylesheet" href="./styleCadCategoria.css">
 
     <script>
-        function verificar(){
+        function verificar() {
             let categoria = document.getElementById('categoria').value;
-            if (categoria == ""){
+            if (categoria == "") {
                 alert('Preencha o campo categoria');
                 formulario.categoria.focus();
                 return false;
@@ -31,6 +31,7 @@
         <h1 style="margin-left: 650px;">Cadastrar Categoria</h1>
         <section style="margin-left: auto; margin-right:15px;">
             <div style="padding: 15px;">
+                <a href="../ListarLivros/index.php" target="_blank" style="margin-right: 8px;">Lista Livros</a>
                 <a href="../CadastroAutor/CadastroAutor.php" target="_blank" style="margin-right: 8px;">Autor</a>
                 <a href="../CadastroEditora/CadastroEditora.php" target="_blank" style="margin-right: 8px;">Editora</a>
                 <a href="../CadastroLivros/CadastroLivro.php" target="_blank" style="margin-right: 8px;">Livro</a>
@@ -50,6 +51,6 @@
     </main>
 
 
-</body>
+    </body>
 
 </html>

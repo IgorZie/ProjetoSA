@@ -1,4 +1,4 @@
-<?php require_once('../Database/conexao.php')?>
+<?php require_once('../Database/conexao.php') ?>
 
 <!DOCTYPE html>
 <html lang="pt-BR">
@@ -17,8 +17,7 @@
     <link rel="stylesheet" href="./styleCadLivro.css">
 
     <script>
-        function verificar()
-        {
+        function verificar() {
             let titulo = document.getElementById('titulo').value;
             let sinopse = document.getElementById('sinopse').value;
             let paginas = document.getElementById('paginas').value;
@@ -29,11 +28,11 @@
             let autor = document.getElementById('autor').value;
             let imagem = document.getElementById('imagem').value;
 
-            if (titulo == ""){
+            if (titulo == "") {
                 alert('Preencha o campo titulo');
                 formulario.titulo.focus();
                 return false;
-            } else if (sinopse == ""){
+            } else if (sinopse == "") {
                 alert('Preencha o campo descrição');
                 formulario.sinopse.focus();
                 return false;
@@ -66,11 +65,10 @@
                 formulario.imagem.focus();
                 return false;
             } else {
-                alert ('Livro cadastrado com sucesso');
+                alert('Livro cadastrado com sucesso');
             }
 
         }
-
     </script>
 </head>
 
@@ -79,6 +77,7 @@
         <h1 style="margin-left: 650px;">Cadastrar Livro</h1>
         <section style="margin-left: auto; margin-right:15px;">
             <div style="padding: 15px;">
+                <a href="../ListarLivros/index.php" target="_blank" style="margin-right: 8px;">Lista Livros</a>
                 <a href="../CadastroAutor/CadastroAutor.php" target="_blank" style="margin-right: 8px;">Autor</a>
                 <a href="../CadastroEditora/CadastroEditora.php" target="_blank" style="margin-right: 8px;">Editora</a>
                 <a href="../CadastroCategoria/CadastroCategoria.php" target="_blank" style="margin-right: 8px;">Categoria</a>
@@ -116,11 +115,11 @@
                     <select id="categoria" name="categoria" class="selecionar" required>
                         <option></option>
                         <?php
-                            $queryCategoria = "SELECT * FROM Categoria";
-                            $resultQuery = mysqli_query($conexao, $queryCategoria);
-                            while ($rowCategoria = mysqli_fetch_assoc($resultQuery)){
-                                echo '<option value="'. $rowCategoria["Id_Categoria"].'"> ' . $rowCategoria["Descricao_Categoria"] . '</option>';
-                            }
+                        $queryCategoria = "SELECT * FROM Categoria";
+                        $resultQuery = mysqli_query($conexao, $queryCategoria);
+                        while ($rowCategoria = mysqli_fetch_assoc($resultQuery)) {
+                            echo '<option value="' . $rowCategoria["Id_Categoria"] . '"> ' . $rowCategoria["Descricao_Categoria"] . '</option>';
+                        }
                         ?>
                     </select>
                 </div>
@@ -130,11 +129,11 @@
                     <select id="idioma" name="idioma" class="selecionar" required>
                         <option></option>
                         <?php
-                            $queryIdioma = "SELECT * FROM Idioma";
-                            $resultQuery = mysqli_query($conexao, $queryIdioma);
-                            while ($rowIdioma = mysqli_fetch_assoc($resultQuery)){
-                                echo '<option value="'. $rowIdioma["Id_Idioma"].'"> ' . $rowIdioma["Descricao_Idioma"] . '</option>';
-                            }
+                        $queryIdioma = "SELECT * FROM Idioma";
+                        $resultQuery = mysqli_query($conexao, $queryIdioma);
+                        while ($rowIdioma = mysqli_fetch_assoc($resultQuery)) {
+                            echo '<option value="' . $rowIdioma["Id_Idioma"] . '"> ' . $rowIdioma["Descricao_Idioma"] . '</option>';
+                        }
                         ?>
                     </select>
                 </div>
@@ -144,11 +143,11 @@
                     <select id="editora" name="editora" class="selecionar" required>
                         <option></option>
                         <?php
-                            $queryEditora = "SELECT * FROM Editora";
-                            $resultQuery = mysqli_query($conexao, $queryEditora);
-                            while ($rowEditora = mysqli_fetch_assoc($resultQuery)){
-                                echo '<option value="'. $rowEditora["Id_Editora"].'"> ' . $rowEditora["Nome_Editora"] . '</option>';
-                            }
+                        $queryEditora = "SELECT * FROM Editora";
+                        $resultQuery = mysqli_query($conexao, $queryEditora);
+                        while ($rowEditora = mysqli_fetch_assoc($resultQuery)) {
+                            echo '<option value="' . $rowEditora["Id_Editora"] . '"> ' . $rowEditora["Nome_Editora"] . '</option>';
+                        }
                         ?>
                     </select>
                 </div>
@@ -158,11 +157,11 @@
                     <select id="autor" name="autor" class="selecionar" required>
                         <option></option>
                         <?php
-                            $queryAutor = "SELECT * FROM Autor";
-                            $resultQuery = mysqli_query($conexao, $queryAutor);
-                            while ($rowAutor = mysqli_fetch_assoc($resultQuery)){
-                                echo '<option value="'. $rowAutor["Id_Autor"].'"> ' . $rowAutor["Nome_Autor"] . '</option>';
-                            }
+                        $queryAutor = "SELECT * FROM Autor";
+                        $resultQuery = mysqli_query($conexao, $queryAutor);
+                        while ($rowAutor = mysqli_fetch_assoc($resultQuery)) {
+                            echo '<option value="' . $rowAutor["Id_Autor"] . '"> ' . $rowAutor["Nome_Autor"] . '</option>';
+                        }
                         ?>
                     </select>
                 </div>
@@ -184,4 +183,3 @@
 </body>
 
 </html>
-

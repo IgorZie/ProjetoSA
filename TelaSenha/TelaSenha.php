@@ -6,13 +6,14 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Tela Recuperação de Senha</title>
-    <link rel="stylesheet" href="./style.css">
-    <script src="./source.js" defer></script>
-
+    
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
     <script src="https://kit.fontawesome.com/9c920a4175.js" crossorigin="anonymous" defer></script>
+
+    <link rel="stylesheet" href="./style.css">
+    <script src="./source.js"></script>
 </head>
 
 <body>
@@ -22,7 +23,7 @@
 
     <main>
 
-        <form action="" style="margin-right: 10px;" class="formEmail">
+        <form action="../PHPMailer/index.php" method="POST" style="margin-right: 10px;" class="formEmail">
         <legend>1º Passo</legend>
             <section class="inputs-container">
                 <div class="inputs-container">
@@ -33,29 +34,27 @@
             </section>
         </form>
 
-        <form action="">
+        <form action="./redefinirSenha.php" method="POST" id="formulario">
             <legend>2º Passo</legend>
             <section class="inputs-container">
 
                 <div class="inputs-container">
-                    <input type="text" id="recovery" name="recovery" placeholder="Chave de recuperação" maxlength="8" minlength="8">
+                    <input type="text" id="chave" name="chave" placeholder="Chave de recuperação" maxlength="8" minlength="8" required>
                 </div>
 
                 <div class="password-container">
-                    <input type="password" id="field-password" class="field-password" placeholder="Nova Senha">
+                    <input type="password" id="senha" name="senha" class="field-password" placeholder="Nova Senha" required>
                     <i class="fa-solid fa-eye" id="eye" onclick="showPassword()"></i>
                     <i class="fa-solid fa-eye-slash" id="eye-slash" onclick="showPassword()"></i>
                 </div>
 
                 <div class="password-container">
-                    <input type="password" id="field-password2" class="field-password2" placeholder="Confirmar Senha">
-                    <i class="fa-solid fa-eye" id="eye2" onclick="showPassword2()"></i>
-                    <i class="fa-solid fa-eye-slash" id="eye-slash2" onclick="showPassword2()"></i>
+                    <input type="password" id="senha2" name="senha2" class="field-password2" placeholder="Confirmar Senha" required>
                 </div>
 
             </section>
 
-            <button id="btn-login">Redefinir Senha</button>
+            <button type="submit" id="btn-login" onclick="return conferirSenha()">Redefinir Senha</button>
 
         </form>
     </main>
