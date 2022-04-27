@@ -15,4 +15,4 @@ $queryCadastrar = "INSERT INTO usuario (Nome_Usuario, Apelido_Usuario, Sexo, Dat
 
 $execquery = mysqli_query($conexao, $queryCadastrar);
 
-header('Location: ../TelaLogin/TelaLogin.php');
+header('Location: ../HomePage/index.php');

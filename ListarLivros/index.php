@@ -67,16 +67,18 @@ $ordenacao = ' ORDER BY Id_Livro ASC';
 
             $filtrar = $_POST['filtro'];
 
-            $queryFiltrar = " WHERE (Titulo_Livro LIKE '%$filtrar%' OR Ano_Publicacao LIKE '%$filtrar%' OR Quantidade_Pagina LIKE '%$filtrar%' OR cat.Descricao_Categoria LIKE '%$filtrar%' OR edi.Nome_Editora LIKE '%$filtrar%' OR idi.Descricao_Idioma LIKE '%$filtrar%') GROUP BY li.Titulo_Livro";
+            $queryFiltrar = " WHERE (Titulo_Livro LIKE '%$filtrar%' OR Ano_Publicacao LIKE '%$filtrar%' OR Quantidade_Pagina LIKE '%$filtrar%' OR cat.Descricao_Categoria LIKE '%$filtrar%' OR a.Nome_Autor LIKE '%$filtrar%' OR edi.Nome_Editora LIKE '%$filtrar%' OR idi.Descricao_Idioma LIKE '%$filtrar%') GROUP BY li.Titulo_Livro";
         } else if (isset($_POST['btn-limparFiltro'])) {
 
             $queryFiltrar = "";
         }
     }
 
-    $queryListar = 'SELECT Id_Livro, Titulo_Livro, Ano_Publicacao, Quantidade_Pagina,  cat.Descricao_Categoria, edi.Nome_Editora, idi.Descricao_Idioma
+    $queryListar = 'SELECT li.Id_Livro, Titulo_Livro, Ano_Publicacao, Quantidade_Pagina,  cat.Descricao_Categoria, a.Nome_Autor ,edi.Nome_Editora, idi.Descricao_Idioma
     FROM livro li
     JOIN categoria cat ON cat.Id_Categoria=li.Id_Categoria
+    JOIN livro_autor la ON la.Id_Livro=li.Id_Livro
+    JOIN autor a ON a.Id_Autor=la.Id_Autor
     JOIN editora edi ON edi.Id_Editora=li.Id_Editora
     JOIN idioma idi ON idi.Id_Idioma=li.Id_Idioma' . $ordenacao . $queryFiltrar;
 
@@ -98,6 +100,7 @@ $ordenacao = ' ORDER BY Id_Livro ASC';
         . '<th scope="col">Ano de Publicação</th>'
         . '<th scope="col">Quantidade de Páginas</th>'
         . '<th scope="col">Categoria</th>'
+        . '<th scope="col">Autor</th>'
         . '<th scope="col">Editora</th>'
         . '<th scope="col">Idioma</th>'
         . '<th scope="col">Ações</th>'
@@ -108,6 +111,7 @@ $ordenacao = ' ORDER BY Id_Livro ASC';
             . "<td>$linha_livro[Ano_Publicacao]</td>"
             . "<td>$linha_livro[Quantidade_Pagina]</td>"
             . "<td>$linha_livro[Descricao_Categoria]</td>"
+            . "<td>$linha_livro[Nome_Autor]</td>"
             . "<td>$linha_livro[Nome_Editora]</td>"
             . "<td>$linha_livro[Descricao_Idioma]</td>"
             . "<td><a href='index.php?id=" . $linha_livro['Id_Livro'] . "&action=delete' class='btn-excluir' name='btn_delete' id='btn_delete_$linha_livro[Id_Livro]'>Deletar</a></td>"
