@@ -9,7 +9,7 @@
 .container-fluid2 {
     display: grid;
     grid-template-columns: 1fr 3fr;
-    grid-template-rows: 10vh 150vh 10vh;
+    grid-template-rows: 10vh 150vh 7vh;
     /* grid-template-rows: 10vh 400px 100vh 5vh; */
 
     grid-template-areas: "header header"
@@ -112,8 +112,7 @@ main{
 }
 
 main h2{
-    margin-top: 30px;
-    margin-left: 250px;
+    margin: 30px auto;
     color: gray;
     text-align: center;
 } 
@@ -128,4 +127,20 @@ main img{
 footer{
     background: #423842;
     grid-area: footer;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}
+
+.foot-list {
+    list-style: none;
+    display: flex;
+    text-decoration-color:white;
+    margin-top: 15px;
+}
+
+.foot-list li {
+    letter-spacing: 3px;
+    margin-left: 32px;
+    color: white;
 }

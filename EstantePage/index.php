@@ -96,7 +96,12 @@ $email = $_SESSION['email'];
 
         </main>
 
-        <footer></footer>
+        <footer>
+             <ul class="foot-list">
+                <li>Sugira livros em: sorvil.joinville@gmail.com</li>
+                <li>© Copyright 2022 Sorvil</li>   
+            </ul>
+        </footer>
 
     </div>
 </body>
