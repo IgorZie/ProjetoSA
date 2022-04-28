@@ -14,6 +14,7 @@ function getCidade($id, $idCidade){
 function voltar(){
     header('Location: ../HomePage/index.php');
 }
+
 ?>
 
 

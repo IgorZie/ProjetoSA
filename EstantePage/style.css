@@ -109,6 +109,11 @@ main{
     overflow-y: scroll;
     margin-bottom: 20px;
     padding: 20px;
+    text-align: center;
+}
+
+.card{
+    border: none;
 }
 
 main h2{

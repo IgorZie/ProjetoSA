@@ -15,7 +15,7 @@ function showPassword() {
 }
 
 function voltar() {
-    window.history.back();
+    window.location.href = "http://localhost/ProjetoSA/HomePage/index.php";
 }
 
 function conferirSenha() {

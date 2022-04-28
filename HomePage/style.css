@@ -118,6 +118,7 @@ main{
     flex-wrap: wrap;
     overflow-y: scroll;
     margin-bottom: 20px;
+    text-align: center;
 }
 
 main img{
@@ -127,7 +128,9 @@ main img{
 
 .card{
     height: 100%;
+    border: none;
 }
+
 
 /* ---------------------MAIN-------------------------- */
 
@@ -137,10 +140,12 @@ aside{
 }
 
 .aside-conteiner{
+    border-radius: 5px;
     border: 1px solid black;
     background: #423842;
     margin-left: 10px;
     width: 80%;
+    
 
     position: -webkit-sticky;
     position: sticky;

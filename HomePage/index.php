@@ -6,7 +6,7 @@ if (isset($_POST['search'])) {
 } else {
   $filtrar = "";
 }
-
+$entrou = 0;
 ?>
 
 <!DOCTYPE html>
@@ -30,6 +30,7 @@ if (isset($_POST['search'])) {
 </head>
 
 <body>
+  
 
   <div class="container-fluid2">
     <header>
@@ -88,7 +89,7 @@ if (isset($_POST['search'])) {
       <div class="aside-conteiner">
         <ul class="categ-list">
           <?php
-
+          
           $queryCategoria = "SELECT * FROM categoria";
           $resultQuery = mysqli_query($conexao, $queryCategoria);
           while ($rowCategoria = mysqli_fetch_assoc($resultQuery)) {
@@ -102,6 +103,50 @@ if (isset($_POST['search'])) {
 
 
     <main>
+
+      <?php
+      
+      if (isset($_GET['id']) && isset($_GET['action'])) {
+        $idCategoria = $_GET['id'];
+        if (isset($_GET['action']) == 'categoria') {
+          $entrou = 1;
+
+          $queryBusca = "SELECT * FROM livro li
+                         JOIN  categoria ca ON ca.Id_Categoria=li.Id_Categoria
+                         WHERE ca.Id_Categoria=$idCategoria";
+
+
+          $resultQuery = mysqli_query($conexao, $queryBusca);
+          // $array = mysqli_fetch_assoc($resultQuery);
+          $row = mysqli_num_rows($resultQuery);
+
+          echo "<div class='row'>";
+          // $contagem = 0;
+          while ($rowLivro = mysqli_fetch_assoc($resultQuery)) {
+            // $text = ($contagem > 3) ? 'h-100' : '';
+            echo "<div class='col mb-2 pr-0' style='padding-left: 0px;'><div class='div-card'>"
+              . '<div class="card" style="width: 16rem;">'
+              . '<button class="btn btn-default">'
+              . "<a href='./index.php?idLivro=" . $rowLivro['Id_Livro'] . "'><img class='card-img-top' src='../Uploads/" . $rowLivro['Id_Livro'] . ".jpg' alt='Card image cap'></a>"
+              . '</button>'
+              . '<div class="card-body">'
+              . "<h5 class='card-title'>" . $rowLivro['Titulo_Livro'] . "</h5>"
+              . '</div>'
+              . '</div>'
+              . '</div></div>';
+
+            // $contagem++;
+          }      
+
+          echo "</div>";
+
+          if ($row == 0) {
+            echo "<h2 style='margin-left: 150px'>Livros não encontrados com essa categoria</h2>";
+          }
+        }
+      }
+      ?>
+
       <?php
       $queryLivro = "SELECT * FROM livro ORDER BY Id_Livro DESC";
       $resultQuery = mysqli_query($conexao, $queryLivro);
@@ -124,7 +169,7 @@ if (isset($_POST['search'])) {
         echo "<div class='row'>";
         $cont = 0;
         while ($rowFiltro = mysqli_fetch_assoc($resultFiltro)) {
-          $text = ($cont > 3) ? 'h-100' : '';
+          $text = ($cont >= 3) ? 'h-100' : '';
           echo "<div class='col mb-2 pr-0'><div class='div-card {$text}'>"
             . '<div class="card" style="width: 16rem;">'
             . '<button class="btn btn-default">'
@@ -139,7 +184,7 @@ if (isset($_POST['search'])) {
           $cont++;
         }
         echo "</div>";
-      } else {
+      } else if ($entrou == 0) {
         echo "<div class='row'>";
         while ($rowLivro = mysqli_fetch_assoc($resultQuery)) {
           echo '<div class="col mb-2 pr-0"><div class="div-card h-100">'
@@ -161,10 +206,10 @@ if (isset($_POST['search'])) {
 
 
     <footer>
-    <ul class="foot-list">
-          <li>Sugira livros em: sorvil.joinville@gmail.com</li>
-          <li>© Copyright 2022 Sorvil</li>
-    </ul>
+      <ul class="foot-list">
+        <li>Sugira livros em: sorvil.joinville@gmail.com</li>
+        <li>© Copyright 2022 Sorvil</li>
+      </ul>
     </footer>
   </div>
 
