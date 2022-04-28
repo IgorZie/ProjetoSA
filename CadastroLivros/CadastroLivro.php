@@ -115,7 +115,7 @@
                     <select id="categoria" name="categoria" class="selecionar" required>
                         <option></option>
                         <?php
-                        $queryCategoria = "SELECT * FROM Categoria";
+                        $queryCategoria = "SELECT * FROM Categoria ORDER BY Descricao_Categoria";
                         $resultQuery = mysqli_query($conexao, $queryCategoria);
                         while ($rowCategoria = mysqli_fetch_assoc($resultQuery)) {
                             echo '<option value="' . $rowCategoria["Id_Categoria"] . '"> ' . $rowCategoria["Descricao_Categoria"] . '</option>';
@@ -143,7 +143,7 @@
                     <select id="editora" name="editora" class="selecionar" required>
                         <option></option>
                         <?php
-                        $queryEditora = "SELECT * FROM Editora";
+                        $queryEditora = "SELECT * FROM Editora ORDER BY Nome_Editora";
                         $resultQuery = mysqli_query($conexao, $queryEditora);
                         while ($rowEditora = mysqli_fetch_assoc($resultQuery)) {
                             echo '<option value="' . $rowEditora["Id_Editora"] . '"> ' . $rowEditora["Nome_Editora"] . '</option>';
@@ -157,7 +157,7 @@
                     <select id="autor" name="autor" class="selecionar" required>
                         <option></option>
                         <?php
-                        $queryAutor = "SELECT * FROM Autor";
+                        $queryAutor = "SELECT * FROM Autor ORDER BY Nome_Autor";
                         $resultQuery = mysqli_query($conexao, $queryAutor);
                         while ($rowAutor = mysqli_fetch_assoc($resultQuery)) {
                             echo '<option value="' . $rowAutor["Id_Autor"] . '"> ' . $rowAutor["Nome_Autor"] . '</option>';
