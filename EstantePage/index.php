@@ -75,7 +75,7 @@ $email = $_SESSION['email'];
                     echo "<div class='col mb-2 pr-0'><div class='div-card {$text}'>"
                         . '<div class="card" style="width: 16rem;">'
                         . '<button class="btn btn-default">'
-                        . "<a href='./index.php?idLivro=" . $rowLivro['Id_Livro'] . "'><img class='card-img-top' src='../Uploads/" . $rowLivro['Id_Livro'] . ".jpg' alt='Card image cap'></a>"
+                        . "<a href='../Pagina-livro/index.php?idLivro=" . $rowLivro['Id_Livro'] . "'><img class='card-img-top' src='../Uploads/" . $rowLivro['Id_Livro'] . ".jpg' alt='Card image cap'></a>"
                         . '</button>'
                         . '<div class="card-body">'
                         . "<h5 class='card-title'>" . $rowLivro['Titulo_Livro'] . "</h5>"

@@ -27,6 +27,13 @@ $entrou = 0;
 
   <link rel="stylesheet" type="text/css" href="./style.css">
   <title>Sorvil</title>
+
+<script>
+  if ( window.history.replaceState ) {
+  window.history.replaceState( null, null, window.location.href );
+}
+</script>
+
 </head>
 
 <body>
@@ -127,7 +134,7 @@ $entrou = 0;
             echo "<div class='col mb-2 pr-0' style='padding-left: 0px;'><div class='div-card'>"
               . '<div class="card" style="width: 16rem;">'
               . '<button class="btn btn-default">'
-              . "<a href='./index.php?idLivro=" . $rowLivro['Id_Livro'] . "'><img class='card-img-top' src='../Uploads/" . $rowLivro['Id_Livro'] . ".jpg' alt='Card image cap'></a>"
+              . "<a href='../Pagina-livro/index.php?idLivro=" . $rowLivro['Id_Livro'] . "'><img class='card-img-top' src='../Uploads/" . $rowLivro['Id_Livro'] . ".jpg' alt='Card image cap'></a>"
               . '</button>'
               . '<div class="card-body">'
               . "<h5 class='card-title'>" . $rowLivro['Titulo_Livro'] . "</h5>"
@@ -173,7 +180,7 @@ $entrou = 0;
           echo "<div class='col mb-2 pr-0'><div class='div-card {$text}'>"
             . '<div class="card" style="width: 16rem;">'
             . '<button class="btn btn-default">'
-            . "<a href='./index.php?idLivro=" . $rowFiltro['Id_Livro'] . "'><img class='card-img-top' src='../Uploads/" . $rowFiltro['Id_Livro'] . ".jpg' alt='Card image cap'></a>"
+            . "<a href='../Pagina-livro/index.php?idLivro=" . $rowFiltro['Id_Livro'] . "'><img class='card-img-top' src='../Uploads/" . $rowFiltro['Id_Livro'] . ".jpg' alt='Card image cap'></a>"
             . '</button>'
             . '<div class="card-body">'
             . "<h5 class='card-title'>" . $rowFiltro['Titulo_Livro'] . "</h5>"
@@ -190,7 +197,7 @@ $entrou = 0;
           echo '<div class="col mb-2 pr-0"><div class="div-card h-100">'
             . '<div class="card" style="width: 16rem;">'
             . '<button class="btn btn-default">'
-            . "<a href='./index.php?idLivro=" . $rowLivro['Id_Livro'] . "'><img class='card-img-top' src='../Uploads/" . $rowLivro['Id_Livro'] . ".jpg' alt='Card image cap'></a>"
+            . "<a href='../Pagina-livro/index.php?idLivro=" . $rowLivro['Id_Livro'] . "'><img class='card-img-top' src='../Uploads/" . $rowLivro['Id_Livro'] . ".jpg' alt='Card image cap'></a>"
             . '</button>'
             . '<div class="card-body">'
             . "<h5 class='card-title'>" . $rowLivro['Titulo_Livro'] . "</h5>"
