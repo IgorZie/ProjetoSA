@@ -3,7 +3,7 @@
 require_once '../Database/conexao.php';
 
 $titulo = $_POST['titulo'];
-$sinopse = $_POST['sinopse'];
+$sinopse = str_replace("'", "", $_POST['sinopse']);
 $paginas = $_POST['paginas'];
 $anoLivro = $_POST['anoLivro'];
 $categoria = $_POST['categoria'];
