@@ -1,5 +1,49 @@
 <?php 
 require_once('../Database/conexao.php');
+
+
+if (isset($_GET['id']) && isset($_GET['action'])){
+    $id = $_GET['id'];
+    if (isset($_GET['action']) == 'editar'){
+
+        $queryLivro = "SELECT * FROM livro li
+                       JOIN livro_autor la ON la.Id_Livro=li.Id_Livro
+                       JOIN autor au ON au.Id_Autor=la.Id_Autor
+                       WHERE li.Id_Livro='$id'";
+        $execLivro = mysqli_query($conexao, $queryLivro);
+        
+        while($livro = mysqli_fetch_assoc($execLivro)){
+            $titulo = $livro['Titulo_Livro'];
+            $descricao = $livro['Descricao_Livro'];
+            $ano = $livro['Ano_Publicacao'];
+            $paginas = $livro['Quantidade_Pagina'];
+            $categoria = $livro['Id_Categoria'];
+            $editora = $livro['Id_Editora'];
+            $idioma = $livro['Id_Idioma'];
+            $autor = $livro['Id_Autor'];
+        }
+
+
+
+    }
+}
+
+function getCategoria($id, $idCategoria){
+    return ($id == $idCategoria)? 'selected': '';
+}
+
+function getIdioma($id, $idIdioma){
+    return ($id == $idIdioma)? 'selected': '';
+}
+
+function getEditora($id, $idEditora){
+    return ($id == $idEditora)? 'selected': '';
+}
+
+function getAutor($id, $idAutor){
+    return ($id == $idAutor)? 'selected': '';
+}
+
 ?>
 
 <!DOCTYPE html>
@@ -9,7 +53,7 @@ require_once('../Database/conexao.php');
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Tela Cadastro Livros</title>
+    <title>Tela Editar Livros</title>
 
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -76,7 +120,7 @@ require_once('../Database/conexao.php');
 
 <body>
     <header>
-        <h1 style="margin-left: 650px;">Cadastrar Livro</h1>
+        <h1 style="margin-left: 650px;">Editar Livro</h1>
         <section style="margin-left: auto; margin-right:15px;">
             <div style="padding: 15px;">
                 <a href="../ListarLivros/index.php" target="_blank" style="margin-right: 8px;">Lista Livros</a>
@@ -89,27 +133,28 @@ require_once('../Database/conexao.php');
     </header>
 
     <main>
-        <form enctype="multipart/form-data" method="POST" action="./CadastrarLivro.php" id="formulario">
+        <form enctype="multipart/form-data" method="POST" action="./edita.php" id="formulario">
             <section class="inputs-container">
 
+                <input type="hidden" name="idLivro" value="<?=$id?>">
                 <div class="">
                     <label>Título do Livro:</label>
-                    <input type="text" id="titulo" name="titulo" min="3" class="" required>
+                    <input type="text" id="titulo" name="titulo" min="3" class="" value="<?=$titulo?>" required>
                 </div>
 
                 <div>
                     <label>Descrição:</label><br>
-                    <textarea name="sinopse" id="sinopse" name="sinopse" cols="30" rows="10" style="color: black; padding: 5px" required></textarea>
+                    <textarea name="sinopse" id="sinopse" name="sinopse" cols="30" rows="10" style="color: black; padding: 5px" required><?=$descricao?></textarea>
                 </div>
 
                 <div>
                     <label>Páginas:</label><br>
-                    <input type="number" id="paginas" name="paginas" required>
+                    <input type="number" id="paginas" name="paginas" value="<?=$paginas?>" required>
                 </div>
 
                 <div>
                     <label>Ano do Livro:</label><br>
-                    <input type="text" id="anoLivro" name="anoLivro" maxlength="4" minlength="4" required>
+                    <input type="text" id="anoLivro" name="anoLivro" maxlength="4" minlength="4" value="<?=$ano?>" required>
                 </div>
 
                 <div>
@@ -120,7 +165,7 @@ require_once('../Database/conexao.php');
                         $queryCategoria = "SELECT * FROM Categoria ORDER BY Descricao_Categoria";
                         $resultQuery = mysqli_query($conexao, $queryCategoria);
                         while ($rowCategoria = mysqli_fetch_assoc($resultQuery)) {
-                            echo '<option value="' . $rowCategoria["Id_Categoria"] . '"> ' . $rowCategoria["Descricao_Categoria"] . '</option>';
+                            echo '<option value="' . $rowCategoria["Id_Categoria"] .'" '. getCategoria($rowCategoria["Id_Categoria"], $categoria) . '> ' . $rowCategoria["Descricao_Categoria"] . '</option>';
                         }
                         ?>
                     </select>
@@ -134,7 +179,7 @@ require_once('../Database/conexao.php');
                         $queryIdioma = "SELECT * FROM Idioma";
                         $resultQuery = mysqli_query($conexao, $queryIdioma);
                         while ($rowIdioma = mysqli_fetch_assoc($resultQuery)) {
-                            echo '<option value="' . $rowIdioma["Id_Idioma"] . '"> ' . $rowIdioma["Descricao_Idioma"] . '</option>';
+                            echo '<option value="' . $rowIdioma["Id_Idioma"] . '" '. getIdioma($rowIdioma["Id_Idioma"], $idioma) . '> ' . $rowIdioma["Descricao_Idioma"] . '</option>';
                         }
                         ?>
                     </select>
@@ -148,7 +193,7 @@ require_once('../Database/conexao.php');
                         $queryEditora = "SELECT * FROM Editora ORDER BY Nome_Editora";
                         $resultQuery = mysqli_query($conexao, $queryEditora);
                         while ($rowEditora = mysqli_fetch_assoc($resultQuery)) {
-                            echo '<option value="' . $rowEditora["Id_Editora"] . '"> ' . $rowEditora["Nome_Editora"] . '</option>';
+                            echo '<option value="' . $rowEditora["Id_Editora"] . '" '. getEditora($rowEditora["Id_Editora"], $editora) .'> ' . $rowEditora["Nome_Editora"] . '</option>';
                         }
                         ?>
                     </select>
@@ -162,19 +207,14 @@ require_once('../Database/conexao.php');
                         $queryAutor = "SELECT * FROM Autor ORDER BY Nome_Autor";
                         $resultQuery = mysqli_query($conexao, $queryAutor);
                         while ($rowAutor = mysqli_fetch_assoc($resultQuery)) {
-                            echo '<option value="' . $rowAutor["Id_Autor"] . '"> ' . $rowAutor["Nome_Autor"] . '</option>';
+                            echo '<option value="' . $rowAutor["Id_Autor"] . '" '. getAutor($rowAutor["Id_Autor"], $autor) .'> ' . $rowAutor["Nome_Autor"] . '</option>';
                         }
                         ?>
                     </select>
                 </div>
 
-                <div style="margin-top: 40px;" class="upload">
-                    <label>Upload Imagem</label>
-                    <input type="file" name="imagem" id="imagem" required>
-                </div>
-
                 <div class="">
-                    <button type="submit" id="btn-login" onclick="return verificar()">Cadastrar</button>
+                    <button type="submit" id="btn-login" onclick="return verificar()">Editar</button>
                 </div>
 
             </section>

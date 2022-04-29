@@ -47,9 +47,16 @@ $ordenacao = ' ORDER BY Id_Livro ASC';
 
 <body>
     <header>
-        <h1 style="margin-left: 650px;">Lista dos Livros</h1>
+        <div style="padding: 15px;">
+            <span style="color: white;"><strong>Listas:</strong></span>
+            <a href="../ListarLivros/listaAutores.php" target="_blank" style="margin-right: 8px;">Autores</a>
+            <a href="../ListarLivros/listaEditoras.php" target="_blank" style="margin-right: 8px;">Editoras</a>
+            <a href="../ListarLivros/listaCategorias.php" target="_blank" style="margin-right: 8px;">Categorias</a>
+            <a href="../ListarLivros/listaIdiomas.php" target="_blank" style="margin-right: 8px;">Idiomas</a>
+        </div>
+        <h1 style="margin-left: 250px;">Lista dos Livros</h1>
         <section style="margin-left: auto; margin-right:15px;">
-            <div style="padding: 15px;">
+            <div style="padding: 15px;"><span style="color: white;"><strong>Cadastros:</strong></span>
                 <a href="../CadastroLivros/CadastroLivro.php" target="_blank" style="margin-right: 8px;">Livro</a>
                 <a href="../CadastroAutor/CadastroAutor.php" target="_blank" style="margin-right: 8px;">Autor</a>
                 <a href="../CadastroEditora/CadastroEditora.php" target="_blank" style="margin-right: 8px;">Editora</a>
@@ -93,17 +100,17 @@ $ordenacao = ' ORDER BY Id_Livro ASC';
 
     $resultadoListar = mysqli_query($conexao, $queryListar);
     echo '<div class="container-fluid">';
-    echo '<table class="table table-striped table-dark">';
+    echo '<table class="table table-striped table-dark" style="text-align: center">';
     echo '<br> <thead>';
     echo '<tr><th scope="col">Id_Livro</th>'
         . '<th scope="col">Titulo do Livro</th>'
-        . '<th scope="col">Ano de Publicação</th>'
-        . '<th scope="col">Quantidade de Páginas</th>'
+        . '<th scope="col">Ano</th>'
+        . '<th scope="col">Páginas</th>'
         . '<th scope="col">Categoria</th>'
         . '<th scope="col">Autor</th>'
         . '<th scope="col">Editora</th>'
         . '<th scope="col">Idioma</th>'
-        . '<th scope="col">Ações</th>'
+        . '<th scope="col" colspan=2>Ações</th>'
         . '</tr> </thead> <tbody>';
     while ($linha_livro = mysqli_fetch_array($resultadoListar)) {
         echo "<tr><td>$linha_livro[Id_Livro]</td>"
@@ -114,6 +121,7 @@ $ordenacao = ' ORDER BY Id_Livro ASC';
             . "<td>$linha_livro[Nome_Autor]</td>"
             . "<td>$linha_livro[Nome_Editora]</td>"
             . "<td>$linha_livro[Descricao_Idioma]</td>"
+            . "<td><a href='../CadastroLivros/EditarLivros.php?id=" . $linha_livro['Id_Livro'] . "&action=editar' class='btn-excluir' name='btn_delete' id='btn_delete_$linha_livro[Id_Livro]'>Editar</a></td>"
             . "<td><a href='index.php?id=" . $linha_livro['Id_Livro'] . "&action=delete' class='btn-excluir' name='btn_delete' id='btn_delete_$linha_livro[Id_Livro]'>Deletar</a></td>"
             . "</tr>";
     }
