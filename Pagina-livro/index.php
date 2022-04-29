@@ -1,7 +1,63 @@
 <?php
+session_start();
+
+$email = (isset($_SESSION['email'])) ? $_SESSION['email'] : "";
 require_once('../Database/conexao.php');
-// include('../TelaLogin/verifica_login.php');
-// $email = $_SESSION['email'];
+
+
+$livro = $_GET['idLivro'];
+
+function getStatus($status, $statusBanco)
+{
+    return ($status == $statusBanco) ? 'selected' : '';
+}
+
+$status = "";
+$nota = "";
+$check = "checked";
+$check1 = "";
+$check2 = "";
+$check3 = "";
+$check4 = "";
+$check5 = "";
+
+if (isset($_SESSION['email'])) {
+
+
+    $queryBuscarUsuario = "SELECT * FROM usuario WHERE Email='$email'";
+    $resultQueryBusca = mysqli_query($conexao, $queryBuscarUsuario);
+    $arrayUsuario = mysqli_fetch_assoc($resultQueryBusca);
+    $usuario = $arrayUsuario['Id_Usuario'];
+
+    $queryUsuarioLivro = "SELECT * FROM usuario_livro WHERE (Id_Usuario='$usuario') AND (Id_Livro='$livro')";
+    $execUsuarioLivro = mysqli_query($conexao, $queryUsuarioLivro);
+
+    while ($arrayLivro = mysqli_fetch_assoc($execUsuarioLivro)) {
+        $status = $arrayLivro['Id_Status_Livro'];
+        $nota = $arrayLivro['Nota_Avaliacao'];
+
+        $check = "";
+        $check1 = "";
+        $check2 = "";
+        $check3 = "";
+        $check4 = "";
+        $check5 = "";
+
+        if ($nota == 1) {
+            $check1 = 'checked';
+        } else if ($nota == 2) {
+            $check2 = 'checked';
+        } else if ($nota == 3) {
+            $check3 = 'checked';
+        } else if ($nota == 4) {
+            $check4 = 'checked';
+        } else if ($nota == 5) {
+            $check5 = 'checked';
+        } else {
+            $check = 'checked';
+        }
+    }
+}
 ?>
 
 <!DOCTYPE html>
@@ -54,27 +110,53 @@ require_once('../Database/conexao.php');
             </nav>
         </header>
 
+
+
         <aside>
             <div class="aside-container">
                 <img class="img-livro" src="../Uploads/<?= $_GET['idLivro'] ?>.jpg" alt="Capa Livro" height="300" width="200" style="overflow: hidden;">
             </div>
 
-            <form class="estante-form" action="processa.php" method="POST" enctype="multipart/form-data">
-                <select class="select" name="select">
-                    <option value="" selected disabled hidden>Adicionar a estante</option>
+            <form class="estante-form" action="./adicionar.php" method="POST" enctype="multipart/form-data">
+                <input type="hidden" name="idLivro" value="<?= $_GET['idLivro'] ?>">
+                <select class="select" name="selectStatus" required>
+                    <option value="" selected disabled>Adicionar a estante</option>
                     <?php
                     $queryStatus = "SELECT * FROM status_livro ORDER BY Descricao_Status";
                     $resultQueryStatus = mysqli_query($conexao, $queryStatus);
                     while ($rowStatus = mysqli_fetch_assoc($resultQueryStatus)) {
-                        echo "<option value='" . $rowStatus['Id_Status_Livro'] . "'> " . $rowStatus['Descricao_Status'] . "</option>";
+                        // echo "<option value='" . $rowStatus['Id_Status_Livro'] . " '> " . $rowStatus['Descricao_Status'] . "</option>";
+                        echo '<option value="' . $rowStatus["Id_Status_Livro"] . '" ' . getStatus($rowStatus["Id_Status_Livro"], $status) . '> ' . $rowStatus["Descricao_Status"] . '</option>';
                     }
                     ?>
                 </select>
                 <input type="submit" class="btn btn-secondary btn-lg" value="+">
             </form>
+            <?php
+            
+            $queryMedia = "SELECT SUM(Nota_Avaliacao) AS Soma_Notas, COUNT(Nota_Avaliacao) AS Total_Notas
+                           FROM usuario_livro
+                           WHERE Id_Livro='$livro'";
+            $execMedia = mysqli_query($conexao, $queryMedia);
+            $arrayMedia = mysqli_fetch_assoc($execMedia);
+            
+            if ($arrayMedia['Soma_Notas'] && $arrayMedia['Total_Notas']){
+                $media = $arrayMedia['Soma_Notas'] / $arrayMedia['Total_Notas'];
+            } else {
+                $media = "-";
+            }
+
+            ?>
+            <br>
+            <h3 style="width: 50px; margin-top:45px; margin-left: 53px">
+                <strong><?=$media?>/5.0</strong>
+            </h3>
+
         </aside>
 
-        <main>
+
+
+        <main class="mb-4">
             <div class="main-top">
                 <section class="titulo">
                     <?php
@@ -112,54 +194,67 @@ require_once('../Database/conexao.php');
                 </div>
             </div>
 
-            <div class="main-botton"  style="margin-top: 150px;">
-                <form class="comente" action="processa.php" method="POST" enctype="multipart/form-data">
+            <div class="main-botton" style="margin-top: 115px;">
+                <form class="comente" action="./avaliacao.php" method="POST" enctype="multipart/form-data">
                     <h4>Avaliação</h4>
+                    <input type="hidden" name="idLivro" value="<?= $_GET['idLivro'] ?>">
                     <div class="estrelas">
-                        <input type="radio" id="cm_star-empty" name="fb" value="" checked />
+                        <input type="radio" id="cm_star-empty" name="estrela" value="" <?= $check ?> />
                         <label for="cm_star-1"><i class="fa"></i></label>
 
-                        <input type="radio" id="cm_star-1" name="fb" value="1" />
+                        <input type="radio" id="cm_star-1" name="estrela" value="1" <?= $check1 ?> />
                         <label for="cm_star-2"><i class="fa"></i></label>
 
-                        <input type="radio" id="cm_star-2" name="fb" value="2" />
+                        <input type="radio" id="cm_star-2" name="estrela" value="2" <?= $check2 ?> />
                         <label for="cm_star-3"><i class="fa"></i></label>
 
-                        <input type="radio" id="cm_star-3" name="fb" value="3" />
+                        <input type="radio" id="cm_star-3" name="estrela" value="3" <?= $check3 ?> />
                         <label for="cm_star-4"><i class="fa"></i></label>
 
-                        <input type="radio" id="cm_star-4" name="fb" value="4" />
+                        <input type="radio" id="cm_star-4" name="estrela" value="4" <?= $check4 ?> />
                         <label for="cm_star-5"><i class="fa"></i></label>
 
-                        <input type="radio" id="cm_star-5" name="fb" value="5" />
+                        <input type="radio" id="cm_star-5" name="estrela" value="5" <?= $check5 ?> />
                     </div>
 
-                    <textarea cols=60 id="comente" rows="3" name="comente" maxlength="500" wrap="hard" placeholder="comente aqui"></textarea>
+                    <textarea cols=60 id="comente" rows="3" name="comente" maxlength="500" wrap="hard" placeholder="Comente aqui..." style="padding: 8px;"></textarea>
                     <br>
                     <input type="submit" class="btn btn-secondary btn-lg" value="Enviar avaliação">
                 </form><br>
 
                 <div class="comentario">
-                    <br><h4>Outras avaliações</h4><br>
+                    <br>
+                    <h4>Outras avaliações</h4><br>
                     <?php
-                    
-                    $queryBuscaAvaliacao = "SELECT * FROM usuario_livro ul
+
+                    $queryBuscaAvaliacao = "SELECT us.Apelido_Usuario, Comentario_Avaliacao, Data_Inicio FROM usuario_livro ul
                     JOIN livro li ON li.Id_Livro=ul.Id_Livro
                     JOIN usuario us ON us.Id_Usuario=ul.Id_Usuario
                     WHERE ul.Id_Livro='$idLivro'";
 
                     $resultQueryAvalicao = mysqli_query($conexao, $queryBuscaAvaliacao);
-                    $arrayAvaliacao = mysqli_fetch_assoc($resultQueryAvalicao);
                     $rowAvaliacao = mysqli_num_rows($resultQueryAvalicao);
 
-                    if ($rowAvaliacao > 0){
-                        echo '<div class="coment">'
-                        . '<hr class="dashed">'
-                        . "<p>" . $arrayAvaliacao['Nome_Usuario'] . "<br>" . $arrayAvaliacao['Comentario_Avaliacao'] . "</p>"
-                        . '</div>';
-                    } else{
+                    $cont = 0;
+                    echo "<div class='row'><div class='col-12'>";
+                    while ($arrayAvaliacao = mysqli_fetch_assoc($resultQueryAvalicao)) {
+                        if ($arrayAvaliacao['Comentario_Avaliacao']) {
+                            $cont++;
+                            echo '<div class="coment">'
+                                . '<hr class="dashed">'
+                                . "<p><strong>" . $arrayAvaliacao['Apelido_Usuario'] . "</strong><br>" . $arrayAvaliacao['Comentario_Avaliacao'] . "<br>"
+                                . "<span class='text-muted small'>" . date('d/m/Y', strtotime($arrayAvaliacao['Data_Inicio'])) . "</span>"
+                                . "</p>"
+                                . '</div>';
+                        }
+                    }
+                    echo "</div></div>";
+
+                    if ($cont == 0) {
                         echo "<p><h4><strong>Não existe outras avaliações para este livro</strong></h4></p>";
-                    }                    
+                    }
+
+
 
                     ?>
 
