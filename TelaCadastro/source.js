@@ -37,9 +37,9 @@ function conferirSenha() {
 
     if (nome == "" || apelido == "" || email == "" || sexo == "" || dataNasc == "" || estado == "" || cidade == ""){
         alert('Preencha todos os campos');
-    } else {
-        alert('Cadastrado com sucesso!');
-    }
+    } // else {
+        // alert('Cadastrado com sucesso!');
+    // }
 
 }
 

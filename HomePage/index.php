@@ -15,6 +15,7 @@ $entrou = 0;
 <head>
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <link rel="shortcut icon" href="../Img/icon.ico">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <!-- Bootstrap CSS -->
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
@@ -28,16 +29,16 @@ $entrou = 0;
   <link rel="stylesheet" type="text/css" href="./style.css">
   <title>Sorvil</title>
 
-<script>
-  if ( window.history.replaceState ) {
-  window.history.replaceState( null, null, window.location.href );
-}
-</script>
+  <script>
+    if (window.history.replaceState) {
+      window.history.replaceState(null, null, window.location.href);
+    }
+  </script>
 
 </head>
 
 <body>
-  
+
 
   <div class="container-fluid2">
     <header>
@@ -96,7 +97,7 @@ $entrou = 0;
       <div class="aside-conteiner">
         <ul class="categ-list">
           <?php
-          
+
           $queryCategoria = "SELECT * FROM categoria";
           $resultQuery = mysqli_query($conexao, $queryCategoria);
           while ($rowCategoria = mysqli_fetch_assoc($resultQuery)) {
@@ -112,7 +113,7 @@ $entrou = 0;
     <main>
 
       <?php
-      
+
       if (isset($_GET['id']) && isset($_GET['action'])) {
         $idCategoria = $_GET['id'];
         if (isset($_GET['action']) == 'categoria') {
@@ -143,12 +144,12 @@ $entrou = 0;
               . '</div></div>';
 
             // $contagem++;
-          }      
+          }
 
           echo "</div>";
 
           if ($row == 0) {
-            echo "<h2 style='margin-left: 150px'>Livros não encontrados com essa categoria</h2>";
+            echo "<h2 style='margin-left: 150px; height:100%'>Livros não encontrados com essa categoria</h2>";
           }
         }
       }
@@ -208,16 +209,16 @@ $entrou = 0;
         echo "</div>";
       }
       ?>
-
+      <footer>
+        <ul class="foot-list">
+          <li>Sugira livros em: sorvil.joinville@gmail.com</li>
+          <li>© Copyright 2022 Sorvil</li>
+        </ul>
+      </footer>
     </main>
 
 
-    <footer>
-      <ul class="foot-list">
-        <li>Sugira livros em: sorvil.joinville@gmail.com</li>
-        <li>© Copyright 2022 Sorvil</li>
-      </ul>
-    </footer>
+
   </div>
 
   <!-- Optional JavaScript -->

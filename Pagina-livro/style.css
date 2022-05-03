@@ -10,12 +10,12 @@
     display: grid;
     grid-template-columns: 1fr 3fr;
     /* grid-template-rows: 10vh 50vh 150vh 10vh; */
-    grid-template-rows: 10vh 50px 125vh 7vh;
+    grid-template-rows: 10vh 50px 125vh;
 
     grid-template-areas: "header header"
         "banner banner"
-        "aside main"
-        "footer footer";
+        "aside main";
+        /* "footer footer"; */
 
     /* grid-gap: 10px; */
 }
@@ -124,15 +124,11 @@ main {
     grid-area: main;
     width: 98%;
     height: 95%;
-    /* grid-template-columns: 4fr; */
-
-    /* border-color: 1px solid black; */
     margin-left: 10px;
-
     display: flex;
     flex-wrap: wrap;
-    /* overflow-y: scroll; */
-    margin-bottom: 20px;
+    margin-bottom: 15px;
+    position: relative;
 }
 
 .main-top {
@@ -156,13 +152,9 @@ main {
 }
 
 .main-botton {
-    /* margin-top: 0; */
-    /* align-content:space-between; */
     width: 100%;
     height: 550px;
-    /* margin-top: 20px; */
-    /* border: 1px solid black; */
-    overflow-y: scroll;
+    margin-right: 60px;
 }
 
 .estrelas {
@@ -290,17 +282,21 @@ footer {
     display: flex;
     justify-content: space-around;
     align-items: center;
+    background: white;
+    color: #423842;
+    position: relative;
+    margin-left: -33%;
 }
 
 .foot-list {
     list-style: none;
     display: flex;
-    text-decoration-color: white;
+    /* text-decoration-color: white; */
     margin-top: 15px;
 }
 
 .foot-list li {
     letter-spacing: 3px;
     margin-left: 32px;
-    color: white;
+    /* color: white; */
 }

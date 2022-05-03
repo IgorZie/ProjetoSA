@@ -9,12 +9,12 @@
 .container-fluid2 {
     display: grid;
     grid-template-columns: 1fr 3fr;
-    grid-template-rows: 10vh 150vh 7vh;
+    grid-template-rows: 10vh 150vh;
     /* grid-template-rows: 10vh 400px 100vh 5vh; */
 
     grid-template-areas: "header header"
-                        "main main"
-                        "footer footer";
+                        "main main";
+                        /* "footer footer"; */
 }
 
 /* -------------header------------ */
@@ -106,11 +106,14 @@ main{
     grid-area: main;
     display: flex;
     flex-wrap: wrap;
-    overflow-y: scroll;
-    margin-bottom: 20px;
-    padding: 20px;
+    /* overflow-y: scroll; */
+    /* margin-bottom: 20px; */
+    padding: 15px;
     text-align: center;
+    position: relative;
+    bottom: 0;
 }
+
 
 .card{
     border: none;
@@ -135,17 +138,23 @@ footer{
     display: flex;
     justify-content: space-around;
     align-items: center;
+    background: white;
+    color: #423842;
+    /* margin-left: -16%; */
+    /* position: relative; */
+    /* border: 1px solid black; */
+    width: 100%;
 }
 
 .foot-list {
     list-style: none;
     display: flex;
-    text-decoration-color:white;
+    /* text-decoration-color:white; */
     margin-top: 15px;
 }
 
 .foot-list li {
     letter-spacing: 3px;
     margin-left: 32px;
-    color: white;
+    /* color: white; */
 }

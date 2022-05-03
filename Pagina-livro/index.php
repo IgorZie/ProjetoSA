@@ -66,6 +66,7 @@ if (isset($_SESSION['email'])) {
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <link rel="shortcut icon" href="../Img/icon.ico">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
@@ -133,15 +134,15 @@ if (isset($_SESSION['email'])) {
                 <input type="submit" class="btn btn-secondary btn-lg" value="+">
             </form>
             <?php
-            
+
             $queryMedia = "SELECT SUM(Nota_Avaliacao) AS Soma_Notas, COUNT(Nota_Avaliacao) AS Total_Notas
                            FROM usuario_livro
                            WHERE Id_Livro='$livro'";
             $execMedia = mysqli_query($conexao, $queryMedia);
             $arrayMedia = mysqli_fetch_assoc($execMedia);
-            
-            if ($arrayMedia['Soma_Notas'] && $arrayMedia['Total_Notas']){
-                $media = $arrayMedia['Soma_Notas'] / $arrayMedia['Total_Notas'];
+
+            if ($arrayMedia['Soma_Notas'] && $arrayMedia['Total_Notas']) {
+                $media = number_format(($arrayMedia['Soma_Notas'] / $arrayMedia['Total_Notas']), 1);
             } else {
                 $media = "-";
             }
@@ -149,7 +150,7 @@ if (isset($_SESSION['email'])) {
             ?>
             <br>
             <h3 style="width: 50px; margin-top:45px; margin-left: 53px">
-                <strong><?=$media?>/5.0</strong>
+                <strong><?= $media ?>/5.0</strong>
             </h3>
 
         </aside>
@@ -254,22 +255,22 @@ if (isset($_SESSION['email'])) {
                         echo "<p><h4><strong>Não existe outras avaliações para este livro</strong></h4></p>";
                     }
 
-
-
                     ?>
-
+                    <footer>
+                        <ul class="foot-list">
+                            <li>Sugira livros em: sorvil.joinville@gmail.com</li>
+                            <li>© Copyright 2022 Sorvil</li>
+                        </ul>
+                    </footer>
                 </div>
             </div>
+
+
 
         </main>
 
 
-        <footer>
-            <ul class="foot-list">
-                <li>Sugira livros em: sorvil.joinville@gmail.com</li>
-                <li>© Copyright 2022 Sorvil</li>
-            </ul>
-        </footer>
+
 
     </div>
 </body>

@@ -87,21 +87,20 @@ $email = $_SESSION['email'];
                     $cont++;
                 }
                 echo "</div>";
-                
             } else {
-                echo "<h2>Você não possui livros registrados.<br>Pesquise um livro e adicione a sua estante</h2>";
+                echo "<h2 style='height: 100%'>Você não possui livros registrados.<br>Pesquise um livro e adicione a sua estante</h2>";
             }
 
             ?>
-
+            
+            <footer>
+                <ul class="foot-list">
+                    <li>Sugira livros em: sorvil.joinville@gmail.com</li>
+                    <li>© Copyright 2022 Sorvil</li>
+                </ul>
+            </footer>
+            
         </main>
-
-        <footer>
-             <ul class="foot-list">
-                <li>Sugira livros em: sorvil.joinville@gmail.com</li>
-                <li>© Copyright 2022 Sorvil</li>   
-            </ul>
-        </footer>
 
     </div>
 </body>

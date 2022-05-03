@@ -116,10 +116,15 @@ main{
     grid-area: main;
     display: flex;
     flex-wrap: wrap;
-    overflow-y: scroll;
+    /* overflow-y: scroll; */
     margin-bottom: 20px;
     margin-left: 0;
     text-align: center;
+    position: relative;
+}
+
+.row{
+    margin-right: 60px;
 }
 
 main img{
@@ -182,17 +187,24 @@ footer{
     display: flex;
     justify-content: space-around;
     align-items: center;
+    position: relative;
+    width: 100%;
+    margin-left: -10%;
+    background: white;
+    color: #423842;
+    height: 7vh;
+    margin-top: 100px;
 }
 
 .foot-list {
     list-style: none;
     display: flex;
-    text-decoration-color:white;
+    /* text-decoration-color:white; */
     margin-top: 15px;
 }
 
 .foot-list li {
     letter-spacing: 3px;
     margin-left: 32px;
-    color: white;
+    /* color: white; */
 }
