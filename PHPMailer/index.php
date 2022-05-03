@@ -48,4 +48,5 @@ try {
 
 } catch (Exception $e) {
      echo "Erro ao enviar mensagem: {$mail->ErrorInfo}";
+     header('Location: ../TelaSenha/TelaSenha.php');
 }

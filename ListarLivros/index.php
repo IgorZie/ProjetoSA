@@ -55,7 +55,7 @@ $ordenacao = ' ORDER BY Id_Livro ASC';
             <a href="../ListarLivros/listaCategorias.php" target="_blank" style="margin-right: 8px;">Categorias</a>
             <a href="../ListarLivros/listaIdiomas.php" target="_blank" style="margin-right: 8px;">Idiomas</a>
         </div>
-        <h1 style="margin-left: 250px;">Lista dos Livros</h1>
+        <h1 style="margin-left: auto;">Lista dos Livros</h1>
         <section style="margin-left: auto; margin-right:15px;">
             <div style="padding: 15px;"><span style="color: white;"><strong>Cadastros:</strong></span>
                 <a href="../CadastroLivros/CadastroLivro.php" target="_blank" style="margin-right: 8px;">Livro</a>

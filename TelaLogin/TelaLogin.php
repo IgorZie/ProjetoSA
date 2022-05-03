@@ -38,10 +38,10 @@
             unset($_SESSION['nao_autenticado']);
             ?>
             <section class="inputs-container">
-                <input type="email" id="email" name="email" placeholder="Email">
+                <input type="email" id="email" name="email" placeholder="Email" required>
 
                 <div class="password-container">
-                    <input type="password" id="field-password" name="senha" class="field-password" placeholder="*********">
+                    <input type="password" id="field-password" name="senha" class="field-password" placeholder="*********" required>
                     <i class="fa-solid fa-eye" id="eye" onclick="showPassword()"></i>
                     <i class="fa-solid fa-eye-slash" id="eye-slash" onclick="showPassword()"></i>
                 </div>

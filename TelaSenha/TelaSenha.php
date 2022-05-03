@@ -29,7 +29,7 @@
             <section class="inputs-container">
                 <div class="inputs-container">
                     <!-- <label>Email:</label> -->
-                    <input type="email" id="email" name="email" placeholder="Digite o email">
+                    <input type="email" id="email" name="email" placeholder="Digite o email" required>
                     <button type="submit">Enviar Email</button>
                 </div>
             </section>
@@ -44,13 +44,13 @@
                 </div>
 
                 <div class="password-container">
-                    <input type="password" id="senha" name="senha" class="field-password" placeholder="Nova Senha" required>
+                    <input type="password" id="senha" name="senha" class="field-password" placeholder="Nova Senha" minlength="6" required>
                     <i class="fa-solid fa-eye" id="eye" onclick="showPassword()"></i>
                     <i class="fa-solid fa-eye-slash" id="eye-slash" onclick="showPassword()"></i>
                 </div>
 
                 <div class="password-container">
-                    <input type="password" id="senha2" name="senha2" class="field-password2" placeholder="Confirmar Senha" required>
+                    <input type="password" id="senha2" name="senha2" class="field-password2" placeholder="Confirmar Senha" minlength="6" required>
                 </div>
 
             </section>

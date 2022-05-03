@@ -77,12 +77,12 @@ function voltar(){
 
                 <div class="">
                     <label>Nome Completo:</label>
-                    <input type="text" id="nome" name="nome" min="3" class="" required value="<?=$nome?>">
+                    <input type="text" id="nome" name="nome" minlength="3" class="" required value="<?=$nome?>">
                 </div>
 
                 <div class="">
                     <label>Apelido:</label>
-                    <input type="text" id="apelido" name="apelido" maxlength="14" class="" required value="<?=$apelido?>">
+                    <input type="text" id="apelido" name="apelido" minlength="3" maxlength="14" class="" required value="<?=$apelido?>">
                 </div>
 
                 <div class="">
