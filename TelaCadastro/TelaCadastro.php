@@ -33,17 +33,18 @@
 
                 <div class="">
                     <label>Nome Completo:</label>
-                    <input type="text" id="nome" name="nome" min="3" class="" required>
+                    <input type="text" id="nome" name="nome" minlength="3" class="" required>
                 </div>
 
                 <div class="">
                     <label>Apelido:</label>
-                    <input type="text" id="apelido" name="apelido" maxlength="14" class="" required>
+                    <input type="text" id="apelido" name="apelido" minlength="3" maxlength="14" class="" required>
                 </div>
 
                 <div class="">
-                    <label>Email:</label><br>
+                    <label>Email:</label><span id="resultadoEmail"></span><br>
                     <input type="email" name="email" id="email" placeholder="nome@exemplo.com" class="" required>
+                    
                 </div>
 
                 <div class="">
@@ -81,14 +82,14 @@
 
                 <div class="password-container">
                     <!-- <label>Senha:</label> -->
-                    <input type="password" id="senha" name="senha" class="field-password" placeholder="Senha" required>
+                    <input type="password" id="senha" name="senha" class="field-password" placeholder="Senha" minlength="6" required>
                     <i class="fa-solid fa-eye" id="eye" onclick="showPassword()"></i>
                     <i class="fa-solid fa-eye-slash" id="eye-slash" onclick="showPassword()"></i>
                 </div>
 
                 <div class="password-container">
                     <label>Confirmar senha:</label>
-                    <input type="password" id="senha2" name="senha2" class="field-password2" placeholder="Confirmar Senha" required>
+                    <input type="password" id="senha2" name="senha2" class="field-password2" placeholder="Confirmar Senha" minlength="6" required>
                 </div>
 
                 <div class="">
@@ -100,6 +101,17 @@
 
         <!-- <script src="http://code.jquery.com/jquery-1.5.js"></script> -->
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+
+        <script>
+            $("#email").keyup(function(e) {
+                var email = $(this).val();
+                $.post('ajaxValidaEmail.php', {
+                    'email': email
+                }, function(data) {
+                    $("#resultadoEmail").html(data);
+                })
+            });
+        </script>
 
         <script>
             $("#estado").on("change", function() {
