@@ -10,7 +10,7 @@
     display: grid;
     grid-template-columns: 1fr 3fr;
     /* grid-template-rows: 10vh 50vh 150vh 10vh; */
-    grid-template-rows: 10vh 50px 125vh;
+    grid-template-rows: 10vh 50px 100vh;
 
     grid-template-areas: "header header"
         "banner banner"
@@ -129,10 +129,6 @@ main {
     flex-wrap: wrap;
     margin-bottom: 15px;
     position: relative;
-}
-
-.main-top {
-    height: 300px;
 }
 
 .titulo {
@@ -286,6 +282,7 @@ footer {
     color: #423842;
     position: relative;
     margin-left: -33%;
+    margin-top: 120px;
 }
 
 .foot-list {

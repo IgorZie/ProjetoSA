@@ -15,8 +15,8 @@ $entrou = 0;
 <head>
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <link rel="shortcut icon" href="../Img/icon.ico">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="shortcut icon" href="../Icon/icon.ico" />
   <!-- Bootstrap CSS -->
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
   <!-- load icon library -->
@@ -162,7 +162,7 @@ $entrou = 0;
       if (isset($_POST['search'])) {
         // if (isset($_POST['btn-filtro'])) {
         // $ordenacao = "";
-
+        $encontrado = 0;
         $filtrar = $_POST['search'];
 
         $queryFiltrar = " SELECT *
@@ -177,6 +177,7 @@ $entrou = 0;
         echo "<div class='row'>";
         $cont = 0;
         while ($rowFiltro = mysqli_fetch_assoc($resultFiltro)) {
+          $encontrado = 1;
           $text = ($cont >= 3) ? 'h-100' : '';
           echo "<div class='col mb-2 pr-0'><div class='div-card {$text}'>"
             . '<div class="card" style="width: 16rem;">'
@@ -190,6 +191,9 @@ $entrou = 0;
             . '</div></div>';
 
           $cont++;
+        }
+        if ($encontrado == 0){
+            echo "<h2 style='margin-left: 200px; padding:50px; margin-top:200px; height:100%'>Nenhum livro encontrado</h2>";
         }
         echo "</div>";
       } else if ($entrou == 0) {
@@ -207,7 +211,7 @@ $entrou = 0;
             . '</div></div>';
         }
         echo "</div>";
-      }
+      } 
       ?>
       <footer>
         <ul class="foot-list">

@@ -5,9 +5,11 @@ if (isset($_GET['id']) && isset($_GET['action'])) {
     $Id_Livro = $_GET['id'];
     if ($_GET['action'] == "delete") {
 
+        $queryDeletarUsuario = "DELETE FROM usuario_livro WHERE Id_Livro=$Id_Livro";
         $queryDeletar = "DELETE FROM livro_autor WHERE Id_Livro=$Id_Livro";
         $queryDeletarLivro = "DELETE FROM livro WHERE Id_Livro=$Id_Livro";
 
+        mysqli_query($conexao, $queryDeletarUsuario);
         mysqli_query($conexao, $queryDeletar);
         mysqli_query($conexao, $queryDeletarLivro);
 
@@ -36,8 +38,8 @@ $ordenacao = ' ORDER BY Id_Livro ASC';
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <link rel="shortcut icon" href="../Img/icon.ico">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="shortcut icon" href="../Icon/icon.ico" />
     <title>Listagem de Livros</title>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
@@ -55,7 +57,7 @@ $ordenacao = ' ORDER BY Id_Livro ASC';
             <a href="../ListarLivros/listaCategorias.php" target="_blank" style="margin-right: 8px;">Categorias</a>
             <a href="../ListarLivros/listaIdiomas.php" target="_blank" style="margin-right: 8px;">Idiomas</a>
         </div>
-        <h1 style="margin-left: auto;">Lista dos Livros</h1>
+        <h1 style="margin-left: 250px;">Lista dos Livros</h1>
         <section style="margin-left: auto; margin-right:15px;">
             <div style="padding: 15px;"><span style="color: white;"><strong>Cadastros:</strong></span>
                 <a href="../CadastroLivros/CadastroLivro.php" target="_blank" style="margin-right: 8px;">Livro</a>

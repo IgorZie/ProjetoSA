@@ -20,6 +20,7 @@ $check2 = "";
 $check3 = "";
 $check4 = "";
 $check5 = "";
+$comentario = "";
 
 if (isset($_SESSION['email'])) {
 
@@ -35,6 +36,7 @@ if (isset($_SESSION['email'])) {
     while ($arrayLivro = mysqli_fetch_assoc($execUsuarioLivro)) {
         $status = $arrayLivro['Id_Status_Livro'];
         $nota = $arrayLivro['Nota_Avaliacao'];
+        $comentario = $arrayLivro['Comentario_Avaliacao'];
 
         $check = "";
         $check1 = "";
@@ -66,8 +68,8 @@ if (isset($_SESSION['email'])) {
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <link rel="shortcut icon" href="../Img/icon.ico">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="shortcut icon" href="../Icon/icon.ico" />
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
     <!-- load icon library -->
@@ -258,7 +260,7 @@ if (isset($_SESSION['email'])) {
                     ?>
                     <footer>
                         <ul class="foot-list">
-                            <li>Sugira livros em: sorvil.joinville@gmail.com</li>
+                            <li>Sugira livros em: sorvil.joinville@gmail.com</a></li>
                             <li>© Copyright 2022 Sorvil</li>
                         </ul>
                     </footer>

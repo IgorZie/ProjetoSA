@@ -1,8 +1,8 @@
 -- --------------------------------------------------------
 -- Servidor:                     127.0.0.1
--- Versão do servidor:           10.4.24-MariaDB - mariadb.org binary distribution
+-- Versão do servidor:           10.4.18-MariaDB - mariadb.org binary distribution
 -- OS do Servidor:               Win64
--- HeidiSQL Versão:              11.2.0.6213
+-- HeidiSQL Versão:              11.3.0.6295
 -- --------------------------------------------------------
 
 /*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
@@ -23,9 +23,9 @@ CREATE TABLE IF NOT EXISTS `autor` (
   `Nome_Autor` varchar(200) NOT NULL,
   `Descricao_Autor` varchar(500) DEFAULT NULL,
   PRIMARY KEY (`Id_Autor`)
-) ENGINE=InnoDB AUTO_INCREMENT=27 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=43 DEFAULT CHARSET=latin1;
 
--- Copiando dados para a tabela sql_local.autor: ~25 rows (aproximadamente)
+-- Copiando dados para a tabela sql_local.autor: ~41 rows (aproximadamente)
 /*!40000 ALTER TABLE `autor` DISABLE KEYS */;
 INSERT INTO `autor` (`Id_Autor`, `Nome_Autor`, `Descricao_Autor`) VALUES
 	(1, 'J.K. Rowling', 'Joanne "Jo" Rowling, OBE, FRSL, mais conhecida como J. K. Rowling, é uma escritora, roteirista e produtora cinematográfica britânica, notória por escrever a série de livros Harry Potter. Os livros ganharam uma popularidade mundial, recebendo múltiplos prêmios e vendendo mais de 500 milhões de cópias.'),
@@ -56,7 +56,19 @@ INSERT INTO `autor` (`Id_Autor`, `Nome_Autor`, `Descricao_Autor`) VALUES
 	(27, 'J. R. R. Tolkien', 'John Ronald Reuel Tolkien,[1] CBE,[2] FRSL, conhecido internacionalmente por J. R. R. Tolkien (Bloemfontein, 3 de janeiro de 1892 — Bournemouth, 2 de setembro de 1973),[3] foi um escritor, professor universitário e filólogo britânico, nascido na atual África do Sul, que recebeu o título de doutor em Letras e Filologia pela Universidade de Liège e Dublin, em 1954,[4][5] e autor das obras como O Hobbit, O Senhor dos Anéis e O Silmarillion.[6] Em 28 de março de 1972, Tolkien foi nomeado Comendador.'),
 	(28, 'Harold Schrechter', 'Harold Schechter é um escritor americano de crimes verdadeiros especializado em assassinos em série. Ele é professor emérito no Queens College, City University of New York, onde deu aulas de literatura americana e crítica de mitos por 42 anos.'),
 	(29, 'Ann Rule', 'Ann Rae Rule foi uma autora americana de livros e artigos sobre crimes verdadeiros. Ela é mais conhecida por The Stranger Beside Me, sobre o serial killer Ted Bundy, com quem Rule trabalhou e a quem ela considerava um amigo, mas mais tarde foi revelado ser um assassino.'),
-	(30, 'Terry Sullivan', 'Terry Sullivan foi o promotor responsável pela investigação e prisão de John Wayne Gacy e uma das peças-chave da acusação em seu julgamento. É presidente do The Sullivan Firm, um escritório de advocacia com filiais em Rolling Meadows e Chicago. Hoje advogado autônomo, atua há dez anos como analista jurídico na emissora wgn-tv, de Chicago, Illinois, e já participou de inúmeros programas locais e nacionais de rádio e televisão. ');
+	(30, 'Terry Sullivan', 'Terry Sullivan foi o promotor responsável pela investigação e prisão de John Wayne Gacy e uma das peças-chave da acusação em seu julgamento. É presidente do The Sullivan Firm, um escritório de advocacia com filiais em Rolling Meadows e Chicago. Hoje advogado autônomo, atua há dez anos como analista jurídico na emissora wgn-tv, de Chicago, Illinois, e já participou de inúmeros programas locais e nacionais de rádio e televisão. '),
+	(31, 'Sérgio Buarque de Holanda', 'Sérgio Buarque de Holanda foi um historiador, sociólogo e escritor brasileiro. Foi também crítico literário, jornalista e um dos fundadores do Partido dos Trabalhadores.'),
+	(32, 'Emma Marriot', 'Emma Marriott é licenciada em História Contemporânea pela Universidade de Warwick.\r\nTrabalhou em várias casas editoriais londrinas e atualmente é escritora e editora em regime freelance.\r\nÉ autora de diversos livros de não-ficção que se tornaram sucessos de vendas.\r\nVive em Bedfordshire com o marido e os três filhos.'),
+	(33, 'Stan Lee', 'Stanley Martin Lieber nasceu em 28 de dezembro de 1922 em Nova York, nos Estados Unidos, foi editor e presidente da Marvel Comics, criando vários personagens dos quadrinhos e filmes do Universo Cinematográfico Marvel que marcaram gerações, como Homem-Aranha, o Quarteto Fantástico, X-Men, Hulk, Homem de Ferro, Capitão América, entre outros. Mais conhecido como Stan Lee, o quadrinista faleceu em 2018, no dia 12 de novembro, aos 95 anos.'),
+	(34, 'Akira Toriyama', 'Akira Toriyama é um autor japonês de mangá, conhecido por ser o criador de séries como Dragon Ball e Dr. Slump.'),
+	(35, 'Yoshihiro Togashi', 'Yoshihiro Togashi nascido em 27 de abril de 1966, é um mangaká japonês. Começou a desenhar mangá em uma idade precoce; enquanto que frequentava a faculdade, a editora Shueisha reconheceu o seu talento. '),
+	(36, 'Carl Sagan', 'Carl Edward Sagan foi um cientista, físico, biólogo, astrônomo, astrofísico, cosmólogo, escritor, divulgador científico e ativista norte-americano. Sagan é autor de mais de 600 publicações científicas e também de mais de vinte livros de ciência e ficção científica.'),
+	(37, 'Yuval Noah Harari', 'Yuval Noah Harari é um professor israelense de História e autor do best-seller internacional Sapiens: Uma breve história da humanidade, Homo Deus: Uma Breve História do Amanhã e 21 Lições para o Século 21. Seu último lançamento é Notas sobre a Pandemia: E breves lições para o mundo pós-coronavírus.'),
+	(38, 'Richard Dawkins', 'Clinton Richard Dawkins é um etólogo, biólogo evolutivo e escritor britânico. É fellow emérito do New College da Universidade de Oxford e foi Professor para a Compreensão Pública da Ciência, na mesma universidade, entre 1995 e 2008.'),
+	(39, 'Carlos Roberto Gonçalves', 'Carlos Roberto Gonçalves é um professor, árbitro, escritor e desembargador aposentado brasileiro, que se dedica ao estudo do direito civil.'),
+	(40, 'Robert C. Martin', 'Mesmo um código ruim pode funcionar. Mas se ele não for limpo, pode acabar com uma empresa de desenvolvimento. Perdem-se a cada ano horas incontáveis e recursos importantes devido a um código mal escrito. Mas não precisa ser assim.O renomado especialista em software, Robert C. Martin, apresenta um paradigma revolucionário com Código limpo: Habilidades Práticas do Agile Software. '),
+	(41, 'C.S. Lewis', 'Clive Staples Lewis, comumente referido como C. S. Lewis, foi um professor universitário, escritor, romancista, poeta, crítico literário, ensaísta e teólogo irlandês. Durante sua carreira acadêmica, foi professor e membro do Magdalen College, tanto da Universidade de Oxford como da Universidade de Cambridge.'),
+	(42, 'Charlie Donlea', 'Charlie Donlea é um oftalmologista e escritor norte-americano. Ele escreveu Summit Lake A Rapariga do Lago ou A Garota no Lago um thriller policial. Autor best-seller internacional, ele tem os seus livros publicados em 20 países.');
 /*!40000 ALTER TABLE `autor` ENABLE KEYS */;
 
 -- Copiando estrutura para tabela sql_local.categoria
@@ -5676,9 +5688,9 @@ CREATE TABLE IF NOT EXISTS `editora` (
   `Id_Editora` int(11) NOT NULL AUTO_INCREMENT,
   `Nome_Editora` varchar(100) NOT NULL,
   PRIMARY KEY (`Id_Editora`)
-) ENGINE=InnoDB AUTO_INCREMENT=28 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=36 DEFAULT CHARSET=latin1;
 
--- Copiando dados para a tabela sql_local.editora: ~23 rows (aproximadamente)
+-- Copiando dados para a tabela sql_local.editora: ~31 rows (aproximadamente)
 /*!40000 ALTER TABLE `editora` DISABLE KEYS */;
 INSERT INTO `editora` (`Id_Editora`, `Nome_Editora`) VALUES
 	(1, 'Darkside Books'),
@@ -5703,7 +5715,15 @@ INSERT INTO `editora` (`Id_Editora`, `Nome_Editora`) VALUES
 	(21, 'Antofágica'),
 	(22, 'Paralela'),
 	(23, 'Principis'),
-	(24, 'BestSeller');
+	(24, 'BestSeller'),
+	(28, 'Valentina'),
+	(29, 'Panini'),
+	(30, 'JBC'),
+	(31, 'L&PM'),
+	(32, 'Alta Books'),
+	(33, 'WMF Martins Fontes'),
+	(34, 'Thomas Nelson Brasil'),
+	(35, 'Faro Editorial ');
 /*!40000 ALTER TABLE `editora` ENABLE KEYS */;
 
 -- Copiando estrutura para tabela sql_local.estado
@@ -5777,9 +5797,9 @@ CREATE TABLE IF NOT EXISTS `livro` (
   CONSTRAINT `livro_ibfk_1` FOREIGN KEY (`Id_Idioma`) REFERENCES `idioma` (`Id_Idioma`),
   CONSTRAINT `livro_ibfk_2` FOREIGN KEY (`Id_Categoria`) REFERENCES `categoria` (`Id_Categoria`),
   CONSTRAINT `livro_ibfk_3` FOREIGN KEY (`Id_Editora`) REFERENCES `editora` (`Id_Editora`)
-) ENGINE=InnoDB AUTO_INCREMENT=40 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=76 DEFAULT CHARSET=latin1;
 
--- Copiando dados para a tabela sql_local.livro: ~38 rows (aproximadamente)
+-- Copiando dados para a tabela sql_local.livro: ~70 rows (aproximadamente)
 /*!40000 ALTER TABLE `livro` DISABLE KEYS */;
 INSERT INTO `livro` (`Id_Livro`, `Titulo_Livro`, `Descricao_Livro`, `Ano_Publicacao`, `Quantidade_Pagina`, `Id_Categoria`, `Id_Editora`, `Id_Idioma`) VALUES
 	(1, 'Harry Potter e a Pedra Filosofal', 'Harry Potter é um garoto cujos pais, feiticeiros, foram assassinados por um poderosíssimo bruxo quando ele ainda era um bebê. Ele foi levado, então, para a casa dos tios que nada tinham a ver com o sobrenatural. Pelo contrário. Até os 10 anos, Harry foi uma espécie de gata borralheira: maltratado pelos tios, herdava roupas velhas do primo gorducho, tinha óculos remendados e era tratado como um estorvo. No dia de seu aniversário de 11 anos, entretanto, ele parece deslizar por um buraco sem fundo, como o de Alice no país das maravilhas, que o conduz a um mundo mágico. Descobre sua verdadeira história e seu destino: ser um aprendiz de feiticeiro até o dia em que terá que enfrentar a pior força do mal, o homem que assassinou seus pais. O menino de olhos verde, magricela e desengonçado, tão habituado à rejeição, descobre, também, que é um herói no universo dos magos. Potter fica sabendo que é a única pessoa a ter sobrevivido a um ataque do tal bruxo do mal e essa é a causa da marca em forma de raio que ele carrega na testa. Ele não é um garoto qualquer, ele sequer é um feiticeiro qualquer ele é Harry Potter, símbolo de poder, resistência e um líder natural entre os sobrenaturais. A fábula, recheada de fantasmas, paredes que falam, caldeirões, sapos, unicórnios, dragões e gigantes, não é, entretanto, apenas um passatempo.', 2000, 224, 1, 3, 1),
@@ -5835,7 +5855,23 @@ INSERT INTO `livro` (`Id_Livro`, `Titulo_Livro`, `Descricao_Livro`, `Ano_Publica
 	(52, 'Misery: Louca obsessão', 'Paul Sheldon é um escritor famoso, reconhecido por uma série de best-sellers protagonizados pela mesma personagem: Misery Chastain. Annie Wilkes é uma enfermeira aposentada, leitora voraz e obcecada pela história de Misery. Quando Paul sofre um acidente de carro em uma nevasca, ele é resgatado justamente por Annie, e esse encontro entre fã e autor é o ponto de partida de uma das tramas mais aterrorizantes de Stephen King.', 2014, 328, 14, 8, 1),
 	(53, 'Joyland', 'Carolina do Norte, 1973. O universitário Devin Jones começa um trabalho temporário no parque Joyland, esperando esquecer a namorada que partiu seu coração. Mas é outra garota que acaba mudando seu mundo para sempre: a vítima de um serial killer. Linda Grey foi morta no parque há anos, e diz a lenda que seu espírito ainda assombra o trem fantasma. Não demora para que Devin embarque em sua própria investigação, tentando juntar as pontas soltas do caso.', 2015, 240, 4, 8, 1),
 	(54, 'O cemitério', 'O livro que inspirou o filme O cemitério maldito. Louis Creed, um jovem médico de Chicago, acredita que encontrou seu lugar em uma pequena cidade do Maine. A boa casa, o trabalho na universidade e a felicidade da esposa e dos filhos lhe trazem a certeza de que fez a melhor escolha. Num dos primeiros passeios pela região, conhecem um cemitério no bosque próximo à sua casa. Ali, gerações de crianças enterraram seus animais de estimação. Mas, para além dos pequenos túmulos, há um outro cemitério.', 2013, 424, 3, 8, 1),
-	(55, 'Salem', 'Publicado originalmente em 1975, Salem é inspirado em o Drácula de Bram Stoker. Segundo livro da carreira de King, a obra deu origem ao filme Os Vampiros de Salem, dirigido por Tobe Hopper, de O Massacre da Serra Elétrica. Ambientado na cidadezinha de Jerusalems Lot, na Nova Inglaterra, o romance conta a história de três forasteiros. Ben Mears, um escritor que viveu alguns anos na cidade quando criança e está disposto a acertar contas com o próprio passado; Mark Petrie, um menino obcecado por monstros e filmes de terror; e o Senhor Barlow, uma figura misteriosa que decide abrir uma loja na cidade.', 2013, 464, 3, 8, 1);
+	(55, 'Salem', 'Publicado originalmente em 1975, Salem é inspirado em o Drácula de Bram Stoker. Segundo livro da carreira de King, a obra deu origem ao filme Os Vampiros de Salem, dirigido por Tobe Hopper, de O Massacre da Serra Elétrica. Ambientado na cidadezinha de Jerusalems Lot, na Nova Inglaterra, o romance conta a história de três forasteiros. Ben Mears, um escritor que viveu alguns anos na cidade quando criança e está disposto a acertar contas com o próprio passado; Mark Petrie, um menino obcecado por monstros e filmes de terror; e o Senhor Barlow, uma figura misteriosa que decide abrir uma loja na cidade.', 2013, 464, 3, 8, 1),
+	(60, 'Raízes do Brasil', 'Raízes do Brasil é uma das obras fundadoras do pensamento sobre a sociedade brasileira. No método de análise e estilo da escrita, na sensibilidade para a escolha dos temas e erudição exposta de forma concisa, revela-se o historiador da cultura e ensaísta crítico com talentos de grande escritor. Esta edição, que comemora os oitenta anos de publicação da obra, traz uma verdadeira arqueologia de sua produção. Por meio de notas e variantes, mostra que, entre a primeira edição e as seguintes, durante mais de três décadas, o autor fez alterações importantes no texto, revisitando hipóteses e mudando, às vezes radicalmente, os argumentos e o tom. Posfácios de nove especialistas trazem leituras originais deste que é, para jogar com as palavras de Antonio Candido, um “clássico” que se constrói pouco a pouco.\r\n', 2016, 544, 12, 13, 1),
+	(61, 'A História do Mundo para quem tem pressa', 'É um desafio e tanto resumir mais de 5 mil anos de história em apenas 200 páginas, mas é exatamente isso o que este audacioso livro conseguiu. A História do Mundo para Quem Tem Pressa é na verdade um guia sintético, mas abrangente, para tudo o que precisamos saber sobre os acontecimentos mais importantes da história, desde as antigas civilizações até o final da Segunda Guerra Mundial e a criação da ONU. ', 2015, 200, 12, 28, 1),
+	(62, 'Capitão América Vol. 1', 'Quando retornou às revistas em quadrinhos no início da década de 1960, após anos desaparecido, o Capitão América ainda era inegavelmente um ícone. Não à toa, suas novas histórias logo chamaram atenção e - escritas por Stan Lee e desenhadas por Jack Kirby - em pouco tempo conquistaram os leitores da época! Descubra o porquê desse apelo irresistível nessas aventuras "iniciais" da Sentinela da Liberdade em Tales of Suspense, que mostram a repaginada origem do personagem e jogam Steve Rogers contra assassinos e criminosos de todos os tipos e, claro, contra seu maior adversário, o Caveira Vermelha!\r\n', 2021, 128, 13, 29, 1),
+	(63, 'Homem de Ferro Vol. 3', 'Aqui você vai testemunhar o retorno do Mandarim às histórias clássicas do Homem de Ferro... e apenas o Vingador Dourado conseguirá frustrar os planos maquiavélicos do vilão num confronto sem igual! Mas outros inimigos levarão nosso herói ao limite extremo: Viúva-Negra, Gavião Arqueiro, Unicórnio, Kraven, Camaleão, Cavaleiro Negro e um perigoso sabotador chamado Fantasma. No entanto, nenhum adversário será tão inesperado quanto o... Capitão América!', 2022, 128, 13, 29, 1),
+	(64, 'Quarteto Fantástico Vol. 2', 'Mais uma dose espetacular de aventuras clássicas da Marvel pelas lendas Stan Lee e Jack Kirby: Namor e Doutor Destino juntam forças pra destruir o Quarteto Fantástico! Depois, a equipe viaja até um bizarro planeta e, na volta, precisa encarar não apenas mais um punhado de vilões insanos. mas a falência! Como a Primeira Família da Marvel vai sair dessa? Vamos dizer que adiantando uma tendência que hoje domina as salas cinema!', 2021, 144, 13, 29, 1),
+	(65, 'Dragon Ball Super - Volume 1', 'Alguns meses se passaram desde a grande luta entre Goku e Majin Boo. Mas uma nova ameaça vem para acabar com a paz. Parece que o próximo inimigo vem do Sexto Universo e nossos heróis mal podem esperar para enfrenta-lo e testar a sua força. A aclamada série de Akira Toriyama finalmente tem a sua continuação.', 2022, 192, 13, 29, 1),
+	(66, 'Hunter X Hunter - Volume 11', 'Gon e Killua conseguem escapar do esconderijo do Gen-ei-Ryodan, e decidem procurar Kurapaika para unir forças e pegar o bando da aranha. O quarteto de amigos finalmente está reunido de novo. Enquanto isso, a filha do poderoso Light Nostrad foge para o leilão, contrariando as ordens de seu pai. Sem seus guarda-costas, a garota médium torna-se um alvo fácil para qualquer inimigo que esteja à espreita. Mas como ela pretende participar sem o cartão de acesso? Nessa mesma noite, o bando da aranha começa a armar uma grande bagunça a mando de seu líder, com intenção de sabotar o evento no edifício Semitary', 2021, 200, 13, 30, 1),
+	(67, 'Dragon Ball Vol. 1', 'Son Goku é um pequeno órfão de coração puro, mas com uma tremenda força. Depois de viver tanto tempo isolado da civilização, ele recebe a inesperada visita de uma garota! Bulma lhe propõe uma parceria para buscar as sete Esferas do Dragão, que, quando reunidas, são capazes de realizar qualquer desejo! Perigos e adversários não faltarão no caminho dessa dupla inusitada, e os mais variados personagens marcarão presença nesta aventura cheia de humor!', 2020, 192, 13, 29, 1),
+	(68, 'Cosmos', 'Escrito por um dos maiores divulgadores de ciência do século XX, Cosmos retraça 14 bilhões de anos de evolução cósmica, explorando tópicos como a origem da vida, o cérebro humano, hieróglifos egípcios, missões espaciais, a morte do sol, a evolução das galáxias e as forças e indivíduos que ajudaram a moldar a ciência moderna. Numa prosa transparente, Carl Sagan revela os segredos do planeta azul habitado por uma forma de vida que apenas começa a descobrir sua própria identidade e a se aventurar no vasto oceano do espaço sideral.', 2017, 560, 10, 13, 1),
+	(69, 'Sapiens - Uma Breve História da Humanidade ', 'O que possibilitou ao Homo sapiens subjugar as demais espécies? O que nos torna capazes das mais belas obras de arte, dos avanços científicos mais impensáveis e das mais horripilantes guerras? Nossa capacidade imaginativa. Somos a única espécie que acredita em coisas que não existem na natureza, como Estados, dinheiro e direitos humanos. Partindo dessa ideia, Yuval Noah Harari, doutor em história pela Universidade de Oxford, aborda em Sapiens a história da humanidade sob uma perspectiva inovadora.', 2015, 464, 10, 31, 1),
+	(70, 'O gene egoísta', 'O gene egoísta foi publicado em 1976. Propunha-se a condensar o enorme corpo teórico já produzido para compreender como espécies surgem e se diversificam, como indivíduos se relacionam e colaboram entre si - e a ir além. Richard Dawkins inovou de muitas maneiras. Introduziu uma linguagem informal e metafórica numa área dominada por reflexões densas e fórmulas matemáticas. Subverteu a percepção intuitiva da importância dos organismos e dos grupos: o gene é quem comanda, quem busca perpetuar-se.', 2007, 544, 10, 13, 1),
+	(71, 'Direito Civil. Direito das Obrigações', 'Apresentar, numa abordagem concisa e objetiva, os institutos que compõem os vários ramos do direito, abrangendo, em volumes específicos para cada disciplina, o conteúdo necessário a uma eficiente revisão do programa dos principais concursos na área jurídica, ou mesmo uma introdução às matérias curriculares. É este, pois, o objetivo desta Coleção: constituir-se em ferramenta hábil ao concursando e ao recém-ingresso nas carreiras jurídicas, como fonte de consulta rápida, coesa, de fácil assimilação e com farto conteúdo.', 2018, 160, 15, 18, 1),
+	(72, 'Código limpo: Habilidades práticas do Agile Software ', 'Mesmo um código ruim pode funcionar. Mas se ele não for limpo, pode acabar com uma empresa de desenvolvimento. Perdem-se a cada ano horas incontáveis e recursos importantes devido a um código mal escrito. Mas não precisa ser assim.O renomado especialista em software, Robert C. Martin, apresenta um paradigma revolucionário com Código limpo: Habilidades Práticas do Agile Software.', 2009, 425, 15, 32, 1),
+	(73, 'As Crônicas de Nárnia', 'Viagens ao fim do mundo, criaturas fantásticas e batalhas épicas entre o bem e o mal - o que mais um leitor poderia querer de um livro? O livro que tem tudo isso é O leão, a feiticeira e o guarda-roupa, escrito em 1949 por Clive Staples Lewis. MasLewis não parou por aí. Seis outros livros vieram depois e, juntos, ficaram conhecidos como As crônicas de Nárnia. Nos últimos cinqüenta anos, As crônicas de Nárnia transcenderam o gênero da fantasia para se tornar parte do cânone da literaturaclássica.', 2009, 752, 1, 33, 1),
+	(74, 'Cristianismo puro e simples', 'Em um dos períodos mais sombrios da humanidade, a Segunda Guerra Mundial, C.S. Lewis foi convidado pela BBC a fazer uma série de palestras pelo rádio com o intuito de explicar a fé cristã de forma simples e clara. Mais tarde, ajustado pelo próprio Lewis, esse material daria origem a Cristianismo puro e simples, um grande clássico da literatura. Na obra mais popular e acessível de seu legado, Lewis apresenta os principais elementos da cosmovisão cristã, gradativamente conduzindo o leitor a temas mais profundos e complexos, provocando reflexão e debate.', 2017, 288, 15, 34, 1),
+	(75, 'A garota do lago ', 'Summit Lake, uma pequena cidade entre montanhas, é esse tipo de lugar, bucólico e com encantadoras casas dispostas à beira de um longo trecho de água intocada.Duas semanas atrás, a estudante de direito Becca Eckersley foi brutalmente assassinada em uma dessas casas', 2017, 296, 4, 35, 1);
 /*!40000 ALTER TABLE `livro` ENABLE KEYS */;
 
 -- Copiando estrutura para tabela sql_local.livro_autor
@@ -5848,9 +5884,9 @@ CREATE TABLE IF NOT EXISTS `livro_autor` (
   KEY `Id_Autor` (`Id_Autor`),
   CONSTRAINT `livro_autor_ibfk_1` FOREIGN KEY (`Id_Livro`) REFERENCES `livro` (`Id_Livro`),
   CONSTRAINT `livro_autor_ibfk_2` FOREIGN KEY (`Id_Autor`) REFERENCES `autor` (`Id_Autor`)
-) ENGINE=InnoDB AUTO_INCREMENT=40 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=72 DEFAULT CHARSET=latin1;
 
--- Copiando dados para a tabela sql_local.livro_autor: ~38 rows (aproximadamente)
+-- Copiando dados para a tabela sql_local.livro_autor: ~70 rows (aproximadamente)
 /*!40000 ALTER TABLE `livro_autor` DISABLE KEYS */;
 INSERT INTO `livro_autor` (`Id_Livro_Autor`, `Id_Livro`, `Id_Autor`) VALUES
 	(1, 1, 1),
@@ -5906,7 +5942,23 @@ INSERT INTO `livro_autor` (`Id_Livro_Autor`, `Id_Livro`, `Id_Autor`) VALUES
 	(52, 52, 3),
 	(53, 53, 3),
 	(54, 54, 3),
-	(55, 55, 3);
+	(55, 55, 3),
+	(56, 60, 31),
+	(57, 61, 32),
+	(58, 62, 33),
+	(59, 63, 33),
+	(60, 64, 33),
+	(61, 65, 34),
+	(62, 66, 35),
+	(63, 67, 34),
+	(64, 68, 36),
+	(65, 69, 37),
+	(66, 70, 38),
+	(67, 71, 39),
+	(68, 72, 40),
+	(69, 73, 41),
+	(70, 74, 41),
+	(71, 75, 42);
 /*!40000 ALTER TABLE `livro_autor` ENABLE KEYS */;
 
 -- Copiando estrutura para tabela sql_local.status_livro

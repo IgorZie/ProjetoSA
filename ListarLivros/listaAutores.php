@@ -4,17 +4,23 @@ require_once '../Database/conexao.php';
 if (isset($_GET['id']) && isset($_GET['action'])) {
     $Id_Autor = $_GET['id'];
     if ($_GET['action'] == "delete") {
-
         $queryDeletar = "DELETE FROM autor WHERE Id_Autor=$Id_Autor";
 
-        mysqli_query($conexao, $queryDeletar);
+        if(!mysqli_query($conexao, $queryDeletar)){
 
-        echo '<script type="text/javascript">';
-        echo 'alert("Autor deletado com sucesso!");';
-        echo 'window.location.href = "http://localhost/ProjetoSA/ListarLivros/listaAutores.php";';
-        echo '</script>';
-        // header("Location: ./index.php");
+            echo '<script type="text/javascript">';
+            echo 'alert("Autor não pode ser excluído!");';
+            echo 'window.location.href = "http://localhost/ProjetoSA/ListarLivros/listaAutores.php";';
+            echo '</script>';
+        }   
+        else{
+            echo '<script type="text/javascript">';
+            echo 'alert("Autor deletado com sucesso!");';
+            echo 'window.location.href = "http://localhost/ProjetoSA/ListarLivros/listaAutores.php";';
+            echo '</script>';
+        }
     }
+    
 }
 
 $filtrar = "";
@@ -27,8 +33,8 @@ $ordenacao = ' ORDER BY Id_Autor ASC';
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <link rel="shortcut icon" href="../Img/icon.ico">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="shortcut icon" href="../Icon/icon.ico" />
     <title>Listagem de Autores</title>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
