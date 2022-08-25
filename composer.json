@@ -1,0 +1,7 @@
+{
+    "name": "callti/projeto-sa",
+    "type": "project",
+    "require": {
+        "intervention/image": "2.7.1"
+    }
+}

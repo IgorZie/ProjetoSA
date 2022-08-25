@@ -1,0 +1,210 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+}
+
+.container-fluid2 {
+    display: grid;
+    grid-template-columns: 1fr 3fr;
+    /* grid-template-rows: 10vh 50vh 150vh 10vh; */
+    grid-template-rows: 10vh 370px 60vh;
+
+    grid-template-areas: "header header"
+                        "banner banner"
+                        "aside main";
+                        /* "footer footer"; */
+
+    /* grid-gap: 10px; */
+}
+
+/* -------------header------------ */
+header{
+    grid-area: header;
+}
+
+a {
+    color: white;
+    text-decoration: none;
+    transition: 0.3s;
+}
+
+a:hover {
+    text-decoration: none;
+    color: white;
+}
+
+.logo {
+    font-size: 24px;
+    font-weight: bolder;
+    text-transform: uppercase;
+    letter-spacing: 4px;
+}
+
+nav {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    background: #423842;
+    height: 10vh;
+}
+
+.nav-list {
+    /* margin-top: 12px; */
+    list-style: none;
+    display: flex;
+    text-decoration-color:white;
+    margin-top: 15px;
+}
+
+/* para cada item da lista */
+.nav-list li {
+    letter-spacing: 3px;
+    margin-left: 32px;
+}
+
+form.search_form input[type=text] {
+    padding: 5px;
+    font-size: 15px;
+    border: 1px solid grey;
+    float: left;
+    width: 290px;
+    background: #f1f1f1;
+    border-radius: 10px;
+}
+  
+  /* Style the submit button */
+form.search_form button {
+    float: left;
+    width: 20%;
+    padding: 5px;
+
+    margin-left: -58px;
+
+    background: #858585;
+    color: white;
+    font-size: 15px;
+    border: 1px solid grey;
+    border-left: none; /* Prevent double borders */
+    border-top-right-radius: 10px;
+    border-bottom-right-radius: 10px;
+    cursor: pointer;
+}
+  
+form.search_form button:hover {
+    background: #a7a7a7;
+}
+  
+  /* Clear floats */
+form.search_form::after {
+    content: "";
+    clear: both;
+    display: table;
+}
+/* -----------------------/header------------------ */
+
+
+.banner{
+    /* background: hotpink; */
+    grid-area: banner;
+}
+
+
+/* ---------------------MAIN-------------------------- */
+main{
+    grid-area: main;
+    display: flex;
+    flex-wrap: wrap;
+    /* overflow-y: scroll; */
+    margin-bottom: 20px;
+    margin-left: 0;
+    text-align: center;
+    position: relative;
+}
+
+.row{
+    margin-right: 60px;
+}
+
+main img{
+    width: 348px;
+    height: 400px;
+}
+
+.card{
+    height: 100%;
+    border: none;
+}
+
+
+/* ---------------------MAIN-------------------------- */
+
+/* -----------------------ASIDE--------------------- */
+aside{
+    grid-area: aside;
+}
+
+.aside-conteiner{
+    border-radius: 5px;
+    border: 1px solid black;
+    background: #423842;
+    margin-left: 10px;
+    width: 80%;
+    width: 65%;
+    
+
+    position: -webkit-sticky;
+    position: sticky;
+    top: 0;
+}
+
+a {
+    color: white;
+    text-decoration: none;
+    transition: 0.3s;
+}
+
+a:hover{
+    color: rgb(158, 158, 158);
+}
+
+.categ-list{
+    list-style: none;
+    margin-top: 10px;
+}
+
+.categ-list li {
+    letter-spacing: 3px;
+    margin-left: 10px;
+}
+/* -----------------------/ASIDE--------------------- */
+
+
+footer{
+    background: #423842;
+    grid-area: footer;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    position: relative;
+    width: 100%;
+    margin-left: -15%;
+    background: white;
+    color: #423842;
+    height: 7vh;
+    margin-top: 100px;
+}
+
+.foot-list {
+    list-style: none;
+    display: flex;
+    /* text-decoration-color:white; */
+    margin-top: 15px;
+}
+
+.foot-list li {
+    letter-spacing: 3px;
+    margin-left: 32px;
+    /* color: white; */
+}
